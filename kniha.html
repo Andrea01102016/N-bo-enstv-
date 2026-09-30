@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Třídní kniha | Křesťanství × Islám</title>
+
+  <style>
+    :root{
+      --bg:#eee8dd;
+      --paper:#fffdf8;
+      --ink:#2d2a26;
+      --muted:#746d63;
+      --line:#d8cfbf;
+
+      --christian:#6f4e37;
+      --christian-light:#efe5da;
+
+      --islam:#3e6b57;
+      --islam-light:#e1eee8;
+
+      --shadow:0 16px 40px rgba(55,42,28,.12);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Georgia, "Times New Roman", serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+
+    button{
+      font-family:inherit;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    /* ============================= */
+    /* HORNÍ LIŠTA */
+    /* ============================= */
+
+    .toolbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+
+      background:#2d2a26;
+      color:white;
+
+      padding:14px 22px;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+
+      box-shadow:0 4px 15px rgba(0,0,0,.16);
+    }
+
+    .toolbar-title{
+      font-weight:700;
+    }
+
+    .toolbar-buttons{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .toolbar-button{
+      border:1px solid rgba(255,255,255,.25);
+      background:transparent;
+      color:white;
+
+      border-radius:9px;
+      padding:9px 13px;
+
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .toolbar-button:hover{
+      background:rgba(255,255,255,.1);
+    }
+
+    .toolbar-button.primary{
+      background:white;
+      color:#2d2a26;
+      border-color:white;
+      font-weight:700;
+    }
+
+    /* ============================= */
+    /* KNIHA */
+    /* ============================= */
+
+    .book{
+      width:min(1000px, calc(100% - 30px));
+      margin:30px auto 70px;
+    }
+
+    /* ============================= */
+    /* SPOLEČNÁ STRÁNKA */
+    /* ============================= */
+
+    .page{
+      background:var(--paper);
+
+      border:1px solid var(--line);
+      border-radius:24px;
+
+      box-shadow:var(--shadow);
+
+      padding:48px 46px;
+
+      margin-bottom:30px;
+
+      min-height:520px;
+
+      position:relative;
+    }
+
+    /* ============================= */
+    /* TITULNÍ STRANA */
+    /* ============================= */
+
+    .cover{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      min-height:600px;
+    }
+
+    .cover-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.75rem;
+      color:var(--muted);
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    .cover h1{
+      margin:0;
+      font-size:clamp(2.7rem,7vw,5rem);
+      line-height:1;
+    }
+
+    .cover h1 span{
+      display:block;
+      color:var(--islam);
+      margin-top:8px;
+    }
+
+    .cover-line{
+      width:90px;
+      height:2px;
+      background:var(--line);
+      margin:28px 0;
+    }
+
+    .cover p{
+      margin:0;
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.6;
+    }
+
+    .cover-symbols{
+      display:flex;
+      align-items:center;
+      gap:20px;
+
+      margin-top:32px;
+
+      font-size:2rem;
+    }
+
+    /* ============================= */
+    /* OBSAH */
+    /* ============================= */
+
+    .toc h2{
+      margin:0 0 8px;
+      font-size:2.3rem;
+    }
+
+    .toc-intro{
+      margin:0 0 32px;
+      color:var(--muted);
+    }
+
+    .toc-section{
+      margin-bottom:30px;
+    }
+
+    .toc-section h3{
+      margin:0 0 13px;
+      font-size:1.35rem;
+    }
+
+    .toc-section.christian h3{
+      color:var(--christian);
+    }
+
+    .toc-section.islam h3{
+      color:var(--islam);
+    }
+
+    .toc-list{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+    }
+
+    .toc-item{
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:10px;
+
+      padding:7px 0;
+
+      border-bottom:1px dotted #cfc6ba;
+
+      transition:.15s;
+    }
+
+    .toc-item:hover{
+      padding-left:6px;
+    }
+
+    .toc-number{
+      color:var(--muted);
+      font-size:.85rem;
+      min-width:24px;
+    }
+
+    .toc-title{
+      font-weight:700;
+    }
+
+    .toc-page{
+      color:var(--muted);
+      font-size:.9rem;
+      font-variant-numeric:tabular-nums;
+    }
+
+    /* ============================= */
+    /* TÉMATICKÁ STRÁNKA */
+    /* ============================= */
+
+    .topic-page{
+      min-height:600px;
+    }
+
+    .topic-page.christian{
+      border-top:8px solid var(--christian);
+    }
+
+    .topic-page.islam{
+      border-top:8px solid var(--islam);
+    }
+
+    .topic-kicker{
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      color:var(--muted);
+      font-size:.74rem;
+      font-weight:700;
+
+      margin-bottom:8px;
+    }
+
+    .topic-page h2{
+      margin:0 0 22px;
+      font-size:2.1rem;
+    }
+
+    .topic-page.christian h2{
+      color:var(--christian);
+    }
+
+    .topic-page.islam h2{
+      color:var(--islam);
+    }
+
+    .topic-text{
+      font-size:1.05rem;
+      line-height:1.8;
+
+      white-space:pre-wrap;
+      overflow-wrap:anywhere;
+    }
+
+    .empty{
+      color:#9b9288;
+      font-style:italic;
+    }
+
+    .page-number-screen{
+      position:absolute;
+      right:26px;
+      bottom:20px;
+
+      color:var(--muted);
+      font-size:.85rem;
+    }
+
+    .back-to-toc{
+      display:inline-block;
+      margin-top:26px;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    .back-to-toc:hover{
+      text-decoration:underline;
+    }
+
+    /* ============================= */
+    /* RESPONSIVITA */
+    /* ============================= */
+
+    @media(max-width:650px){
+
+      .toolbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .book{
+        width:min(100% - 20px,1000px);
+        margin-top:18px;
+      }
+
+      .page{
+        padding:32px 22px;
+      }
+
+      .cover{
+        min-height:440px;
+      }
+
+      .topic-page{
+        min-height:420px;
+      }
+
+    }
+
+    /* ============================= */
+    /* TISK */
+    /* ============================= */
+
+    @media print{
+
+      @page{
+        size:A4;
+        margin:14mm;
+      }
+
+      body{
+        background:white;
+        color:black;
+        counter-reset: printedPage;
+      }
+
+      .toolbar{
+        display:none !important;
+      }
+
+      .book{
+        width:100%;
+        margin:0;
+      }
+
+      .page{
+        width:100%;
+
+        border:none;
+        border-radius:0;
+        box-shadow:none;
+
+        margin:0;
+        padding:0;
+
+        min-height:auto;
+
+        page-break-after:always;
+        break-after:page;
+
+        counter-increment:printedPage;
+      }
+
+      .cover{
+        height:267mm;
+      }
+
+      .toc{
+        min-height:267mm;
+      }
+
+      .topic-page{
+        min-height:267mm;
+        padding-top:8mm;
+      }
+
+      .page:last-child{
+        page-break-after:auto;
+        break-after:auto;
+      }
+
+      .page-number-screen{
+        display:none;
+      }
+
+      .topic-page::after{
+        content:"Strana " counter(printedPage);
+
+        position:absolute;
+        right:0;
+        bottom:0;
+
+        font-size:9pt;
+        color:#666;
+      }
+
+      .toc a{
+        text-decoration:none;
+        color:black;
+      }
+
+      .back-to-toc{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================= -->
+  <!-- OVLÁDACÍ LIŠTA -->
+  <!-- ============================= -->
+
+  <header class="toolbar">
+
+    <div class="toolbar-title">
+      Náhled třídní knihy
+    </div>
+
+    <div class="toolbar-buttons">
+
+      <button
+        class="toolbar-button"
+        onclick="window.location.href='ucitel.html'"
+      >
+        ← Upravit texty
+      </button>
+
+      <button
+        class="toolbar-button"
+        onclick="document.getElementById('obsah').scrollIntoView({behavior:'smooth'})"
+      >
+        Obsah
+      </button>
+
+      <button
+        class="toolbar-button primary"
+        onclick="window.print()"
+      >
+        TISK / ULOŽIT PDF
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ============================= -->
+  <!-- KNIHA -->
+  <!-- ============================= -->
+
+  <main class="book">
+
+    <!-- TITULNÍ STRANA -->
+
+    <section class="page cover">
+
+      <div class="cover-eyebrow">
+        Dějepis • třídní práce
+      </div>
+
+      <h1>
+        Křesťanství
+        <span>× Islám</span>
+      </h1>
+
+      <div class="cover-line"></div>
+
+      <p>
+        Společná třídní kniha
+      </p>
+
+      <div class="cover-symbols">
+        <span>✝</span>
+        <span>•</span>
+        <span>☪</span>
+      </div>
+
+      <div class="page-number-screen">
+        Strana 1
+      </div>
+
+    </section>
+
+
+    <!-- OBSAH -->
+
+    <section
+      class="page toc"
+      id="obsah"
+    >
+
+      <h2>
+        Obsah
+      </h2>
+
+      <p class="toc-intro">
+        Kliknutím na téma se přesuneš přímo na jeho stránku.
+      </p>
+
+      <div id="tocContent"></div>
+
+      <div class="page-number-screen">
+        Strana 2
+      </div>
+
+    </section>
+
+
+    <!-- TÉMATA -->
+
+    <div id="bookContent"></div>
+
+  </main>
+
+
+  <script>
+
+    /*
+      =========================================
+      TÉMATA
+      =========================================
+    */
+
+    const topics = {
+
+      krestanstvi: [
+        "Vznik",
+        "Symboly",
+        "Organizace",
+        "Rozdělení",
+        "Kniha",
+        "Kde se modlí",
+        "Známý příběh",
+        "Svátky",
+        "Známí lidé"
+      ],
+
+      islam: [
+        "Vznik",
+        "Symboly",
+        "5 pilířů",
+        "Rozšíření",
+        "Kniha",
+        "Kde se modlí",
+        "Poutní místo",
+        "Arabská věda",
+        "Známí lidé"
+      ]
+
+    };
+
+
+    const religionData = {
+
+      krestanstvi: {
+        name:"Křesťanství",
+        className:"christian"
+      },
+
+      islam: {
+        name:"Islám",
+        className:"islam"
+      }
+
+    };
+
+
+    /*
+      =========================================
+      NAČTENÍ FINÁLNÍCH TEXTŮ
+      =========================================
+    */
+
+    let finalTexts = {};
+
+    try{
+
+      finalTexts =
+        JSON.parse(
+          localStorage.getItem("finalBookTexts")
+        ) || {};
+
+    }
+
+    catch(error){
+
+      finalTexts = {};
+
+    }
+
+
+    /*
+      =========================================
+      ČÍSLOVÁNÍ STRAN
+      =========================================
+
+      1 = titulní strana
+      2 = obsah
+      3–11 = Křesťanství
+      12–20 = Islám
+
+      Každé téma má vlastní stránku,
+      takže jsou čísla pro tisk pevná.
+    */
+
+    const startPage = {
+      krestanstvi:3,
+      islam:12
+    };
+
+
+    /*
+      =========================================
+      VYKRESLENÍ
+      =========================================
+    */
+
+    renderTableOfContents();
+
+    renderBook();
+
+
+    /*
+      =========================================
+      OBSAH
+      =========================================
+    */
+
+    function renderTableOfContents(){
+
+      const container =
+        document.getElementById("tocContent");
+
+      container.innerHTML = "";
+
+
+      container.appendChild(
+        createTocSection("krestanstvi")
+      );
+
+
+      container.appendChild(
+        createTocSection("islam")
+      );
+
+    }
+
+
+    function createTocSection(
+      religionKey
+    ){
+
+      const section =
+        document.createElement("div");
+
+
+      section.className =
+        "toc-section " +
+        religionData[religionKey].className;
+
+
+      const heading =
+        document.createElement("h3");
+
+
+      heading.textContent =
+        religionData[religionKey].name;
+
+
+      section.appendChild(heading);
+
+
+      const list =
+        document.createElement("div");
+
+
+      list.className =
+        "toc-list";
+
+
+      topics[religionKey]
+        .forEach(
+          (topic,index) => {
+
+            const pageNumber =
+              startPage[religionKey] +
+              index;
+
+
+            const topicId =
+              createTopicId(
+                religionKey,
+                topic
+              );
+
+
+            const link =
+              document.createElement("a");
+
+
+            link.className =
+              "toc-item";
+
+
+            link.href =
+              "#" + topicId;
+
+
+            link.innerHTML = `
+
+              <span class="toc-number">
+                ${index + 1}.
+              </span>
+
+              <span class="toc-title">
+                ${escapeHTML(topic)}
+              </span>
+
+              <span class="toc-page">
+                ${pageNumber}
+              </span>
+
+            `;
+
+
+            list.appendChild(link);
+
+          }
+        );
+
+
+      section.appendChild(list);
+
+
+      return section;
+
+    }
+
+
+    /*
+      =========================================
+      TÉMATICKÉ STRÁNKY
+      =========================================
+    */
+
+    function renderBook(){
+
+      const container =
+        document.getElementById("bookContent");
+
+
+      container.innerHTML = "";
+
+
+      createReligionTopics(
+        "krestanstvi",
+        container
+      );
+
+
+      createReligionTopics(
+        "islam",
+        container
+      );
+
+    }
+
+
+    function createReligionTopics(
+      religionKey,
+      container
+    ){
+
+      topics[religionKey]
+        .forEach(
+          (topic,index) => {
+
+            const pageNumber =
+              startPage[religionKey] +
+              index;
+
+
+            const finalKey =
+              createFinalKey(
+                religionKey,
+                topic
+              );
+
+
+            const text =
+              finalTexts[
+                finalKey
+              ] || "";
+
+
+            const section =
+              document.createElement(
+                "section"
+              );
+
+
+            section.className =
+              "page topic-page " +
+              religionData[
+                religionKey
+              ].className;
+
+
+            section.id =
+              createTopicId(
+                religionKey,
+                topic
+              );
+
+
+            section.innerHTML = `
+
+              <div class="topic-kicker">
+                ${
+                  religionData[
+                    religionKey
+                  ].name
+                }
+                • téma ${index + 1}
+              </div>
+
+              <h2>
+                ${escapeHTML(topic)}
+              </h2>
+
+
+              <div class="topic-text">
+
+                ${
+                  text.trim()
+
+                  ?
+
+                  escapeHTML(text)
+
+                  :
+
+                  `
+                  <span class="empty">
+                    Finální text tohoto tématu
+                    zatím nebyl doplněn.
+                  </span>
+                  `
+                }
+
+              </div>
+
+
+              <a
+                href="#obsah"
+                class="back-to-toc"
+              >
+                ↑ Zpět na obsah
+              </a>
+
+
+              <div class="page-number-screen">
+                Strana ${pageNumber}
+              </div>
+
+            `;
+
+
+            container.appendChild(
+              section
+            );
+
+          }
+        );
+
+    }
+
+
+    /*
+      =========================================
+      ID TÉMATU
+      =========================================
+    */
+
+    function createTopicId(
+      religion,
+      topic
+    ){
+
+      return (
+        "tema_" +
+        normalizeText(religion) +
+        "_" +
+        normalizeText(topic)
+      );
+
+    }
+
+
+    /*
+      =========================================
+      KLÍČ FINÁLNÍHO TEXTU
+      =========================================
+    */
+
+    function createFinalKey(
+      religion,
+      topic
+    ){
+
+      return (
+        "final_" +
+        normalizeText(religion) +
+        "_" +
+        normalizeText(topic)
+      );
+
+    }
+
+
+    /*
+      =========================================
+      NORMALIZACE
+      =========================================
+    */
+
+    function normalizeText(text){
+
+      return text
+        .normalize("NFD")
+        .replace(
+          /[\u0300-\u036f]/g,
+          ""
+        )
+        .toLowerCase()
+        .replace(
+          /[^a-z0-9]+/g,
+          "_"
+        )
+        .replace(
+          /^_+|_+$/g,
+          ""
+        );
+
+    }
+
+
+    /*
+      =========================================
+      OCHRANA HTML
+      =========================================
+    */
+
+    function escapeHTML(text){
+
+      if(
+        typeof text !== "string"
+      ){
+        return "";
+      }
+
+
+      return text
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+    }
+
+  </script>
+
+</body>
+</html>
