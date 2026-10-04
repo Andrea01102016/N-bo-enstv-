@@ -1498,33 +1498,41 @@ const firebaseConfig = {
 
     async function connectFirebase(){
 
-      setConnectionState(
-        "connecting",
-        "Připojuji k Firebase..."
-      );
+  setConnectionState(
+    "connecting",
+    "Připojuji k Firebase..."
+  );
 
+  try{
 
-      try{
+    await signInAnonymously(auth);
 
-        await signInAnonymously(
-          auth
-        );
+  }
 
-      }
+  catch(error){
 
-      catch(error){
+    console.error(
+      "Firebase teacher login error:",
+      error
+    );
 
-        console.error(error);
+    setConnectionState(
+      "error",
+      "Firebase chyba: " +
+      (error.code || "bez kódu")
+    );
 
+    alert(
+      "Firebase chyba:\n\n" +
+      "Kód: " +
+      (error.code || "bez kódu") +
+      "\n\nZpráva: " +
+      (error.message || error)
+    );
 
-        setConnectionState(
-          "error",
-          "Přihlášení do Firebase se nepodařilo."
-        );
+  }
 
-      }
-
-    }
+}
 
 
     onAuthStateChanged(
