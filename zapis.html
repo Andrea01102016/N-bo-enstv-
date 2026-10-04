@@ -649,38 +649,31 @@
 
       catch(error){
 
-        console.error(
-          "Chyba anonymního přihlášení:",
-          error
-        );
+  console.error(
+    "Chyba anonymního přihlášení:",
+    error
+  );
 
+  setConnectionState(
+    "error",
+    "Firebase chyba: " + error.code
+  );
 
-        setConnectionState(
-          "error",
-          "Nepodařilo se připojit k databázi."
-        );
+  const message =
+    document.getElementById("message");
 
+  if(message){
 
-        const message =
-          document.getElementById(
-            "message"
-          );
+    message.textContent =
+      "Firebase chyba: " +
+      error.code +
+      " – " +
+      error.message;
 
-
-        if(message){
-
-          message.textContent =
-            "Firebase přihlášení selhalo. Zkontroluj připojení nebo nastavení Anonymous Authentication.";
-
-          message.className =
-            "message error";
-
-        }
-
-      }
-
-    }
-
+    message.className =
+      "message error";
+  }
+}
 
     /*
       Sledujeme stav uživatele.
