@@ -14,7 +14,6 @@
     Tisk knížečky | Křesťanství × Islám
   </title>
 
-
   <style>
 
     :root{
@@ -29,8 +28,7 @@
       --islam:#3e6b57;
 
       --shadow:
-        0 18px 45px
-        rgba(55,42,28,.14);
+        0 18px 45px rgba(55,42,28,.14);
 
     }
 
@@ -52,26 +50,21 @@
         "Times New Roman",
         serif;
 
-      color:
-        var(--ink);
+      color:var(--ink);
 
-      background:
-        var(--bg);
+      background:var(--bg);
 
     }
 
 
     button{
-
-      font-family:
-        inherit;
-
+      font-family:inherit;
     }
 
 
-    /* ======================================= */
-    /* HORNÍ OVLÁDÁNÍ */
-    /* ======================================= */
+    /* ================================================= */
+    /* HORNÍ LIŠTA */
+    /* ================================================= */
 
     .toolbar{
 
@@ -83,23 +76,20 @@
 
       display:flex;
 
-      justify-content:
-        space-between;
+      justify-content:space-between;
 
       align-items:center;
 
       gap:20px;
 
-      padding:
-        14px 22px;
+      padding:14px 22px;
 
       background:#2d2a26;
 
       color:white;
 
       box-shadow:
-        0 4px 15px
-        rgba(0,0,0,.18);
+        0 4px 15px rgba(0,0,0,.18);
 
     }
 
@@ -126,17 +116,14 @@
 
     .toolbar-button{
 
-      padding:
-        9px 14px;
+      padding:9px 14px;
 
       border:
-        1px solid
-        rgba(255,255,255,.25);
+        1px solid rgba(255,255,255,.25);
 
       border-radius:9px;
 
-      background:
-        transparent;
+      background:transparent;
 
       color:white;
 
@@ -168,20 +155,20 @@
 
     .toolbar-button.print{
 
-      background:#ffffff;
+      background:white;
 
       color:#2d2a26;
 
-      border-color:#ffffff;
+      border-color:white;
 
       font-weight:700;
 
     }
 
 
-    /* ======================================= */
-    /* HLAVNÍ OBSAH */
-    /* ======================================= */
+    /* ================================================= */
+    /* OBSAH */
+    /* ================================================= */
 
     .wrapper{
 
@@ -202,16 +189,13 @@
       background:#fffdf8;
 
       border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
       border-radius:20px;
 
-      box-shadow:
-        var(--shadow);
+      box-shadow:var(--shadow);
 
-      padding:
-        28px 32px;
+      padding:26px 30px;
 
       margin-bottom:24px;
 
@@ -220,15 +204,13 @@
 
     .intro-label{
 
-      text-transform:
-        uppercase;
+      text-transform:uppercase;
 
       letter-spacing:.14em;
 
       font-size:.72rem;
 
-      color:
-        var(--muted);
+      color:var(--muted);
 
       font-weight:700;
 
@@ -239,8 +221,7 @@
 
     .intro h1{
 
-      margin:
-        0 0 10px;
+      margin:0 0 9px;
 
       font-size:
         clamp(
@@ -256,92 +237,57 @@
 
       margin:0;
 
-      color:
-        var(--muted);
+      color:var(--muted);
 
       line-height:1.6;
 
     }
 
 
-    /* ======================================= */
-    /* VAROVÁNÍ */
-    /* ======================================= */
-
-    .warning{
-
-      margin-top:18px;
-
-      padding:
-        12px 15px;
-
-      border:
-        1px solid
-        #d7bc8c;
-
-      border-radius:12px;
-
-      background:#fff8e9;
-
-      color:#71551e;
-
-      font-size:.9rem;
-
-      line-height:1.5;
-
-    }
-
-
-    /* ======================================= */
-    /* A4 PAPÍR */
-    /* ======================================= */
+    /* ================================================= */
+    /* A4 */
+    /* ================================================= */
 
     .paper-shell{
 
       overflow:auto;
 
-      padding:
-        18px 0;
+      padding:18px 0;
 
     }
 
 
     .booklet{
 
-      /*
-        A4 NALEŽATO
-        297 × 210 mm
-      */
-
       width:297mm;
 
       height:210mm;
 
-      margin:
-        0 auto;
+      margin:0 auto;
 
       display:grid;
 
       grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4,1fr);
 
       grid-template-rows:
-        repeat(2, 1fr);
+        repeat(2,1fr);
 
       background:white;
 
       box-shadow:
-        0 15px 45px
-        rgba(0,0,0,.17);
+        0 15px 45px rgba(0,0,0,.17);
 
       overflow:hidden;
+
+      position:relative;
 
     }
 
 
-    /* ======================================= */
-    /* JEDNA MINI STRÁNKA */
-    /* ======================================= */
+    /* ================================================= */
+    /* MINI STRÁNKA */
+    /* ================================================= */
 
     .mini-page{
 
@@ -349,26 +295,18 @@
 
       overflow:hidden;
 
-      padding:
-        8mm 7mm;
+      padding:7mm 6.5mm;
 
       border-right:
-        .3mm dashed
-        #aaa;
+        .3mm dashed #aaa;
 
       border-bottom:
-        .3mm dashed
-        #aaa;
+        .3mm dashed #aaa;
 
       background:white;
 
     }
 
-
-    /*
-      Pravý sloupec:
-      nechceme pravý okraj.
-    */
 
     .mini-page:nth-child(4),
     .mini-page:nth-child(8){
@@ -378,11 +316,6 @@
     }
 
 
-    /*
-      Spodní řada:
-      nechceme dolní okraj.
-    */
-
     .mini-page:nth-child(n+5){
 
       border-bottom:none;
@@ -390,9 +323,9 @@
     }
 
 
-    /* ======================================= */
-    /* SPODNÍ ŘADA OTOČENÁ */
-    /* ======================================= */
+    /* ================================================= */
+    /* SPODNÍ ŘADA */
+    /* ================================================= */
 
     .mini-page.bottom{
 
@@ -402,9 +335,9 @@
     }
 
 
-    /* ======================================= */
-    /* OBSAH MINI STRÁNKY */
-    /* ======================================= */
+    /* ================================================= */
+    /* VNITŘEK */
+    /* ================================================= */
 
     .page-inner{
 
@@ -419,17 +352,15 @@
 
     .page-number{
 
-      text-transform:
-        uppercase;
+      text-transform:uppercase;
 
       letter-spacing:.1em;
 
-      font-size:7.5pt;
+      font-size:7pt;
 
-      color:
-        var(--muted);
+      color:var(--muted);
 
-      margin-bottom:3mm;
+      margin-bottom:2.5mm;
 
     }
 
@@ -437,16 +368,14 @@
     .topic-title{
 
       margin:
-        0 0 4mm;
+        0 0 3.5mm;
 
-      padding-bottom:2.5mm;
+      padding-bottom:2.2mm;
 
       border-bottom:
-        .4mm solid
-        currentColor;
+        .4mm solid currentColor;
 
-      font-size:
-        15pt;
+      font-size:14pt;
 
       line-height:1.1;
 
@@ -458,8 +387,7 @@
     .booklet.christian
     .topic-title{
 
-      color:
-        var(--christian);
+      color:var(--christian);
 
     }
 
@@ -467,8 +395,7 @@
     .booklet.islam
     .topic-title{
 
-      color:
-        var(--islam);
+      color:var(--islam);
 
     }
 
@@ -477,20 +404,13 @@
 
       flex:1;
 
-      font-size:
-        9.1pt;
+      font-size:8.8pt;
 
-      line-height:
-        1.35;
+      line-height:1.32;
 
-      color:
-        var(--ink);
+      white-space:pre-wrap;
 
-      white-space:
-        pre-wrap;
-
-      overflow-wrap:
-        anywhere;
+      overflow-wrap:anywhere;
 
       overflow:hidden;
 
@@ -501,83 +421,75 @@
 
       color:#aaa;
 
-      font-style:
-        italic;
+      font-style:italic;
 
     }
 
 
-    /* ======================================= */
-    /* TITULNÍ STRÁNKA */
-    /* ======================================= */
+    /* ================================================= */
+    /* DVĚ TÉMATA NA JEDNÉ STRANĚ */
+    /* ================================================= */
 
-    .cover-page
-    .page-inner{
+    .double-page{
 
-      justify-content:
-        center;
+      display:grid;
 
-      align-items:center;
+      grid-template-rows:
+        1fr 1fr;
 
-      text-align:center;
-
-    }
-
-
-    .cover-symbol{
-
-      font-size:
-        25pt;
-
-      margin-bottom:
-        5mm;
+      gap:3.5mm;
 
     }
 
 
-    .cover-title{
+    .double-topic{
 
-      margin:0;
+      min-height:0;
 
-      font-size:
-        20pt;
-
-      line-height:1.05;
+      overflow:hidden;
 
     }
 
 
-    .cover-subtitle{
+    .double-topic:first-child{
 
-      margin-top:
-        4mm;
+      padding-bottom:3mm;
 
-      color:
-        var(--muted);
-
-      font-size:
-        9pt;
+      border-bottom:
+        .3mm solid var(--line);
 
     }
 
 
-    /* ======================================= */
-    /* STŘIH / OHYB */
-    /* ======================================= */
+    .double-topic .topic-title{
+
+      font-size:11.5pt;
+
+      margin-bottom:2mm;
+
+      padding-bottom:1.5mm;
+
+    }
+
+
+    .double-topic .topic-text{
+
+      font-size:7.4pt;
+
+      line-height:1.22;
+
+    }
+
+
+    /* ================================================= */
+    /* STŘIH */
+    /* ================================================= */
 
     .cut-line{
 
       position:absolute;
 
       z-index:20;
-
-      pointer-events:none;
-
-      /*
-        Znázornění středového řezu.
-        V tisku ho můžeš schovat,
-        pokud ho nechceš mít viditelný.
-      */
 
       left:25%;
 
@@ -586,8 +498,9 @@
       top:50%;
 
       border-top:
-        .35mm dashed
-        rgba(180,50,50,.55);
+        .35mm dashed rgba(180,50,50,.5);
+
+      pointer-events:none;
 
     }
 
@@ -595,6 +508,8 @@
     .cut-label{
 
       position:absolute;
+
+      z-index:21;
 
       left:50%;
 
@@ -610,26 +525,22 @@
 
       color:#b44b43;
 
-      font-size:
-        6pt;
+      font-size:6pt;
 
-      letter-spacing:.05em;
-
-      z-index:21;
+      letter-spacing:.06em;
 
     }
 
 
-    /* ======================================= */
+    /* ================================================= */
     /* TISK */
-    /* ======================================= */
+    /* ================================================= */
 
     @media print{
 
       @page{
 
-        size:
-          A4 landscape;
+        size:A4 landscape;
 
         margin:0;
 
@@ -655,8 +566,7 @@
       .toolbar,
       .intro{
 
-        display:none
-        !important;
+        display:none !important;
 
       }
 
@@ -680,9 +590,9 @@
 
         height:210mm;
 
-        margin:0;
-
         padding:0;
+
+        margin:0;
 
         overflow:hidden;
 
@@ -699,50 +609,22 @@
 
         box-shadow:none;
 
-        page-break-after:avoid;
-
-        break-after:avoid;
-
-      }
-
-
-      /*
-        Pokud nechceš při finálním tisku
-        vidět červenou značku střihu,
-        změň display:block na none.
-      */
-
-      .cut-line,
-      .cut-label{
-
-        display:block;
-
       }
 
     }
 
 
-    /* ======================================= */
+    /* ================================================= */
     /* MENŠÍ OBRAZOVKY */
-    /* ======================================= */
+    /* ================================================= */
 
     @media(max-width:900px){
 
       .toolbar{
 
-        flex-direction:
-          column;
+        flex-direction:column;
 
-        align-items:
-          flex-start;
-
-      }
-
-
-      .booklet{
-
-        transform-origin:
-          top left;
+        align-items:flex-start;
 
       }
 
@@ -756,9 +638,9 @@
 <body>
 
 
-  <!-- ======================================= -->
+  <!-- ================================================= -->
   <!-- OVLÁDÁNÍ -->
-  <!-- ======================================= -->
+  <!-- ================================================= -->
 
   <header class="toolbar">
 
@@ -792,7 +674,7 @@
 
       <button
         class="toolbar-button"
-        onclick="window.location.href='ucitel.html'"
+        onclick="window.location.href='ucitel.html?v=' + Date.now()"
       >
         ← Upravit texty
       </button>
@@ -810,9 +692,9 @@
   </header>
 
 
-  <!-- ======================================= -->
-  <!-- OBSAH -->
-  <!-- ======================================= -->
+  <!-- ================================================= -->
+  <!-- NÁHLED -->
+  <!-- ================================================= -->
 
   <main class="wrapper">
 
@@ -835,23 +717,10 @@
 
       <p>
 
-        Jedna A4 naležato.
-        Po vytištění se papír složí
-        do osmistránkové mini knížečky.
+        Jedna A4 naležato rozdělená na osm částí.
+        Spodní řada je automaticky otočená o 180°.
 
       </p>
-
-
-      <div class="warning">
-
-        Jedna taková A4 vytvoří přesně
-        <strong>8 stran</strong>.
-        Proto je níže nastaveno osm pozic.
-        Deváté téma budeme muset vyřešit
-        samostatně – například druhým listem
-        nebo úpravou obsahu.
-
-      </div>
 
     </section>
 
@@ -863,12 +732,6 @@
         id="booklet"
         class="booklet christian"
       >
-
-        <!--
-          Sem JavaScript automaticky
-          vloží 8 polí.
-        -->
-
       </section>
 
 
@@ -880,64 +743,20 @@
   <script>
 
     /* ================================================= */
-    /* TÉMATA */
-    /* ================================================= */
-
-    const topics = {
-
-      krestanstvi: [
-
-        "Vznik",
-        "Symboly",
-        "Organizace",
-        "Rozdělení",
-        "Kniha",
-        "Kde se modlí",
-        "Známý příběh",
-        "Svátky",
-        "Známí lidé"
-
-      ],
-
-
-      islam: [
-
-        "Vznik",
-        "Symboly",
-        "5 pilířů",
-        "Rozšíření",
-        "Kniha",
-        "Kde se modlí",
-        "Poutní místo",
-        "Arabská věda",
-        "Známí lidé"
-
-      ]
-
-    };
-
-
-    /* ================================================= */
-    /* ROZLOŽENÍ KNIŽEČKY */
+    /* ROZLOŽENÍ OBSAHU */
     /* ================================================= */
 
     /*
-      Toto pole určuje obsah STRAN 1–8.
+      8 výsledných stran.
 
-      DŮLEŽITÉ:
-      není to pořadí bloků na A4,
-      ale skutečné pořadí stran
-      po složení knížky.
-
-      Teď je tam jako první strana titulní.
+      Jedna z nich obsahuje dvě témata:
+      Kniha + Kde se modlí.
     */
 
     const bookletLayout = {
 
       krestanstvi: [
 
-        "__COVER__",
-
         "Vznik",
 
         "Symboly",
@@ -946,18 +765,18 @@
 
         "Rozdělení",
 
-        "Kniha",
+        "__DOUBLE__:Kniha|Kde se modlí",
 
-        "Kde se modlí",
+        "Známý příběh",
 
-        "Známý příběh"
+        "Svátky",
+
+        "Známí lidé"
 
       ],
 
 
       islam: [
-
-        "__COVER__",
 
         "Vznik",
 
@@ -967,11 +786,13 @@
 
         "Rozšíření",
 
-        "Kniha",
+        "__DOUBLE__:Kniha|Kde se modlí",
 
-        "Kde se modlí",
+        "Poutní místo",
 
-        "Poutní místo"
+        "Arabská věda",
+
+        "Známí lidé"
 
       ]
 
@@ -979,19 +800,19 @@
 
 
     /* ================================================= */
-    /* IMPOZICE NA PAPÍŘ */
+    /* FYZICKÉ ROZLOŽENÍ NA A4 */
     /* ================================================= */
 
     /*
-      Fyzické rozložení podle tvé předlohy:
+      Horní řada:
 
-      HORNÍ:
       8 | 1 | 2 | 3
 
-      SPODNÍ:
+      Spodní řada:
+
       7 | 6 | 5 | 4
 
-      Spodní řada se navíc otočí o 180°.
+      Spodní řada se otočí o 180°.
     */
 
     const printOrder = [
@@ -1017,28 +838,18 @@
 
       krestanstvi: {
 
-        name:
-          "Křesťanství",
+        name:"Křesťanství",
 
-        icon:
-          "✝",
-
-        className:
-          "christian"
+        className:"christian"
 
       },
 
 
       islam: {
 
-        name:
-          "Islám",
+        name:"Islám",
 
-        icon:
-          "☪",
-
-        className:
-          "islam"
+        className:"islam"
 
       }
 
@@ -1065,13 +876,18 @@
 
     catch(error){
 
+      console.error(
+        "Nepodařilo se načíst finální texty.",
+        error
+      );
+
       finalTexts = {};
 
     }
 
 
     /* ================================================= */
-    /* AKTUÁLNÍ VÝBĚR */
+    /* AKTUÁLNÍ NÁBOŽENSTVÍ */
     /* ================================================= */
 
     let currentReligion =
@@ -1082,11 +898,12 @@
 
 
     /* ================================================= */
-    /* PŘEPNUTÍ NÁBOŽENSTVÍ */
+    /* PŘEPÍNÁNÍ */
     /* ================================================= */
 
     window.showReligion =
       function(religion){
+
 
         currentReligion =
           religion;
@@ -1126,7 +943,7 @@
 
 
     /* ================================================= */
-    /* VYKRESLENÍ KNIŽEČKY */
+    /* VYKRESLENÍ */
     /* ================================================= */
 
     function renderBooklet(){
@@ -1148,22 +965,15 @@
         info.className;
 
 
-      document
-        .getElementById(
-          "previewTitle"
-        )
-        .textContent =
-          info.name;
+      document.getElementById(
+        "previewTitle"
+      ).textContent =
+        info.name;
 
 
       booklet.innerHTML =
         "";
 
-
-      /*
-        Vytvoříme 8 fyzických polí
-        podle printOrder.
-      */
 
       printOrder.forEach(
 
@@ -1172,10 +982,14 @@
           physicalIndex
         ) => {
 
+
           const miniPage =
             createMiniPage(
+
               pageNumber,
+
               physicalIndex
+
             );
 
 
@@ -1189,7 +1003,7 @@
 
 
       /*
-        Pomocná značka středového střihu.
+        Čára pro prostřední střih.
       */
 
       const cutLine =
@@ -1229,7 +1043,7 @@
 
 
     /* ================================================= */
-    /* JEDNA MINI STRÁNKA */
+    /* JEDNA STRANA */
     /* ================================================= */
 
     function createMiniPage(
@@ -1248,7 +1062,7 @@
 
 
       /*
-        Indexy 4–7 jsou spodní řada.
+        Spodní řada.
       */
 
       if(
@@ -1263,8 +1077,7 @@
 
 
       /*
-        Skutečný obsah stránky.
-        pageNumber 1 = index 0.
+        Obsah podle skutečného čísla stránky.
       */
 
       const pageContent =
@@ -1276,50 +1089,149 @@
 
 
       /*
-        Titulní strana.
+        ===============================
+        DVĚ TÉMATA
+        ===============================
       */
 
       if(
-        pageContent ===
-        "__COVER__"
+        pageContent.startsWith(
+          "__DOUBLE__:"
+        )
       ){
 
-        element.classList.add(
-          "cover-page"
-        );
+        const names =
+          pageContent
+            .replace(
+              "__DOUBLE__:",
+              ""
+            )
+            .split("|");
+
+
+        const topic1 =
+          names[0];
+
+
+        const topic2 =
+          names[1];
+
+
+        const key1 =
+          createFinalKey(
+
+            currentReligion,
+
+            topic1
+
+          );
+
+
+        const key2 =
+          createFinalKey(
+
+            currentReligion,
+
+            topic2
+
+          );
+
+
+        const text1 =
+          finalTexts[
+            key1
+          ] || "";
+
+
+        const text2 =
+          finalTexts[
+            key2
+          ] || "";
 
 
         element.innerHTML = `
 
-          <div class="page-inner">
+          <div class="page-inner double-page">
 
-            <div class="cover-symbol">
 
-              ${
-                religionInfo[
-                  currentReligion
-                ].icon
-              }
+            <div class="double-topic">
+
+              <div class="page-number">
+
+                Strana ${pageNumber}
+
+              </div>
+
+
+              <h2 class="topic-title">
+
+                ${escapeHTML(
+                  topic1
+                )}
+
+              </h2>
+
+
+              <div class="topic-text">
+
+                ${
+                  text1.trim()
+
+                  ?
+
+                  escapeHTML(
+                    text1
+                  )
+
+                  :
+
+                  `
+                  <span class="empty">
+                    Finální text zatím nebyl doplněn.
+                  </span>
+                  `
+                }
+
+              </div>
 
             </div>
 
 
-            <h2 class="cover-title">
+            <div class="double-topic">
 
-              ${
-                religionInfo[
-                  currentReligion
-                ].name
-              }
+              <h2 class="topic-title">
 
-            </h2>
+                ${escapeHTML(
+                  topic2
+                )}
+
+              </h2>
 
 
-            <div class="cover-subtitle">
+              <div class="topic-text">
 
-              Třídní mini knížka
+                ${
+                  text2.trim()
+
+                  ?
+
+                  escapeHTML(
+                    text2
+                  )
+
+                  :
+
+                  `
+                  <span class="empty">
+                    Finální text zatím nebyl doplněn.
+                  </span>
+                  `
+                }
+
+              </div>
 
             </div>
+
 
           </div>
 
@@ -1332,7 +1244,9 @@
 
 
       /*
-        Normální téma.
+        ===============================
+        JEDNO TÉMA
+        ===============================
       */
 
       const finalKey =
@@ -1366,7 +1280,7 @@
           <h2 class="topic-title">
 
             ${escapeHTML(
-              pageContent || ""
+              pageContent
             )}
 
           </h2>
@@ -1379,7 +1293,9 @@
 
               ?
 
-              escapeHTML(text)
+              escapeHTML(
+                text
+              )
 
               :
 
@@ -1404,7 +1320,7 @@
 
 
     /* ================================================= */
-    /* KLÍČ FINÁLNÍHO TEXTU */
+    /* FINÁLNÍ KLÍČ */
     /* ================================================= */
 
     function createFinalKey(
