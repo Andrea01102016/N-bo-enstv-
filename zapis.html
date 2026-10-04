@@ -25,6 +25,7 @@
 
       --success:#3e6b57;
       --danger:#a3342d;
+      --warning:#9b6b22;
 
       --shadow:0 18px 45px rgba(55,42,28,.16);
     }
@@ -54,29 +55,38 @@
     .page{
       width:min(950px,100%);
       margin:0 auto;
+
       background:var(--paper);
+
       border:1px solid var(--line);
-      box-shadow:var(--shadow);
       border-radius:24px;
+
+      box-shadow:var(--shadow);
+
       overflow:hidden;
     }
 
     .header{
       padding:38px 46px 30px;
+
       border-bottom:1px solid var(--line);
     }
 
     .eyebrow{
       text-transform:uppercase;
       letter-spacing:.15em;
+
       font-size:.75rem;
       color:var(--muted);
+
       font-weight:700;
+
       margin-bottom:10px;
     }
 
     h1{
       margin:0;
+
       font-size:clamp(2rem,5vw,3.4rem);
       line-height:1.1;
     }
@@ -85,11 +95,52 @@
       padding:38px 46px 46px;
     }
 
+    .connection{
+      display:flex;
+      align-items:center;
+      gap:9px;
+
+      margin-bottom:20px;
+
+      padding:11px 14px;
+
+      border:1px solid var(--line);
+      border-radius:11px;
+
+      background:white;
+
+      font-size:.88rem;
+      color:var(--muted);
+    }
+
+    .connection-dot{
+      width:10px;
+      height:10px;
+
+      border-radius:50%;
+
+      background:var(--warning);
+
+      flex:0 0 auto;
+    }
+
+    .connection.connected .connection-dot{
+      background:var(--success);
+    }
+
+    .connection.error .connection-dot{
+      background:var(--danger);
+    }
+
     .info-box{
       border:1px solid var(--line);
+
       background:var(--accent-light);
+
       border-radius:18px;
+
       padding:22px 24px;
+
       margin-bottom:30px;
 
       display:grid;
@@ -103,17 +154,23 @@
 
     .info-label{
       display:block;
+
       text-transform:uppercase;
       letter-spacing:.08em;
+
       font-size:.72rem;
       color:var(--muted);
+
       margin-bottom:6px;
+
       font-weight:700;
     }
 
     .info-value{
       font-size:1.08rem;
+
       font-weight:700;
+
       word-wrap:break-word;
     }
 
@@ -123,29 +180,37 @@
 
     .topic-heading h2{
       margin:0 0 8px;
+
       font-size:1.7rem;
     }
 
     .topic-heading p{
       margin:0;
+
       color:var(--muted);
+
       line-height:1.6;
     }
 
     textarea{
       width:100%;
+
       min-height:340px;
+
       resize:vertical;
 
       border:1px solid #cfc3b1;
+
       border-radius:16px;
 
       padding:20px;
 
       background:white;
+
       color:var(--ink);
 
       font-family:Georgia, "Times New Roman", serif;
+
       font-size:1.05rem;
       line-height:1.7;
 
@@ -156,20 +221,28 @@
 
     textarea:focus{
       border-color:var(--accent);
-      box-shadow:0 0 0 4px rgba(122,87,56,.10);
+
+      box-shadow:
+        0 0 0 4px rgba(122,87,56,.10);
     }
 
     .counter{
       text-align:right;
+
       color:var(--muted);
+
       font-size:.85rem;
+
       margin-top:8px;
     }
 
     .message{
       min-height:26px;
+
       margin-top:14px;
+
       font-size:.95rem;
+
       font-weight:700;
     }
 
@@ -181,50 +254,79 @@
       color:var(--danger);
     }
 
+    .message.warning{
+      color:var(--warning);
+    }
+
     .buttons{
       display:flex;
+
       gap:12px;
+
       margin-top:18px;
     }
 
     button{
       border:none;
+
       border-radius:12px;
+
       padding:14px 20px;
+
       font:700 1rem Georgia, "Times New Roman", serif;
+
       cursor:pointer;
+
       transition:.2s ease;
     }
 
     .save{
       flex:1;
+
       background:var(--accent);
+
       color:white;
     }
 
-    .save:hover{
+    .save:hover:not(:disabled){
       filter:brightness(.9);
+
       transform:translateY(-1px);
+    }
+
+    .save:disabled{
+      opacity:.55;
+
+      cursor:not-allowed;
     }
 
     .back{
       background:white;
+
       color:var(--muted);
+
       border:1px solid var(--line);
     }
 
     .back:hover{
       color:var(--ink);
+
       border-color:#b9ad9b;
     }
 
     .saved-box{
       display:none;
+
       margin-top:30px;
+
       border:1px solid #b9d2c5;
+
       background:#eef6f2;
+
       border-radius:18px;
+
       padding:24px;
+
       text-align:center;
     }
 
@@ -234,37 +336,53 @@
 
     .saved-box h3{
       margin:0 0 10px;
+
       color:var(--success);
     }
 
     .saved-box p{
       margin:0;
+
       color:var(--muted);
+
       line-height:1.6;
     }
 
     .saved-actions{
       display:flex;
+
       gap:10px;
+
       margin-top:18px;
+
       justify-content:center;
+
       flex-wrap:wrap;
     }
 
     .saved-actions button{
       background:white;
+
       border:1px solid #b9d2c5;
+
       color:var(--success);
     }
 
     .error-page{
       max-width:650px;
+
       margin:100px auto;
+
       padding:40px;
+
       background:white;
+
       border:1px solid var(--line);
+
       border-radius:20px;
+
       text-align:center;
+
       box-shadow:var(--shadow);
     }
 
@@ -274,11 +392,13 @@
 
     .error-page button{
       margin-top:20px;
+
       background:var(--accent);
+
       color:white;
     }
 
-    @media (max-width:700px){
+    @media(max-width:700px){
 
       body{
         padding:12px;
@@ -294,6 +414,7 @@
 
       .info-box{
         grid-template-columns:1fr;
+
         gap:14px;
       }
 
@@ -317,86 +438,314 @@
 
   <main id="app"></main>
 
-  <script>
+
+  <script type="module">
 
     /*
-      ========================================
-      NAČTENÍ ÚDAJŮ Z LOCALSTORAGE
-      ========================================
+      =============================================
+      FIREBASE IMPORTY
+      =============================================
+    */
+
+    import {
+      initializeApp
+    }
+    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+    import {
+      getFirestore,
+      doc,
+      setDoc,
+      serverTimestamp
+    }
+    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+    import {
+      getAuth,
+      signInAnonymously,
+      onAuthStateChanged
+    }
+    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+    /*
+      =============================================
+      FIREBASE KONFIGURACE
+      =============================================
+    */
+
+    const firebaseConfig = {
+
+      apiKey:
+        "AIzaSyBi0BPMajByRf987HFeTZIDHFvJVm7XR1g",
+
+      authDomain:
+        "nabozenstvi-8fc06.firebaseapp.com",
+
+      projectId:
+        "nabozenstvi-8fc06",
+
+      storageBucket:
+        "nabozenstvi-8fc06.firebasestorage.app",
+
+      messagingSenderId:
+        "409593452616",
+
+      appId:
+        "1:409593452616:web:77e75288e6b5c0d300e07d",
+
+      measurementId:
+        "G-8PXRR79VV1"
+
+    };
+
+
+    /*
+      =============================================
+      INICIALIZACE FIREBASE
+      =============================================
+    */
+
+    const firebaseApp =
+      initializeApp(
+        firebaseConfig
+      );
+
+
+    const db =
+      getFirestore(
+        firebaseApp
+      );
+
+
+    const auth =
+      getAuth(
+        firebaseApp
+      );
+
+
+    let currentUser = null;
+
+
+    /*
+      =============================================
+      DATA Z LOCALSTORAGE
+      =============================================
     */
 
     const studentName =
-      localStorage.getItem("studentName");
+      localStorage.getItem(
+        "studentName"
+      );
+
 
     const selectedReligion =
-      localStorage.getItem("selectedReligion");
+      localStorage.getItem(
+        "selectedReligion"
+      );
+
 
     const selectedTopic =
-      localStorage.getItem("selectedTopic");
+      localStorage.getItem(
+        "selectedTopic"
+      );
 
 
     const religionData = {
 
       krestanstvi: {
-        name: "Křesťanství",
-        color: "#6f4e37",
-        light: "#efe5da",
-        icon: "✝"
+
+        name:
+          "Křesťanství",
+
+        color:
+          "#6f4e37",
+
+        light:
+          "#efe5da",
+
+        icon:
+          "✝"
+
       },
 
+
       islam: {
-        name: "Islám",
-        color: "#3e6b57",
-        light: "#e1eee8",
-        icon: "☪"
+
+        name:
+          "Islám",
+
+        color:
+          "#3e6b57",
+
+        light:
+          "#e1eee8",
+
+        icon:
+          "☪"
+
       }
 
     };
 
 
     const app =
-      document.getElementById("app");
+      document.getElementById(
+        "app"
+      );
 
 
     /*
-      ========================================
-      KONTROLA ÚDAJŮ
-      ========================================
+      =============================================
+      KONTROLA PŘEDCHOZÍHO VÝBĚRU
+      =============================================
     */
 
-    if (
+    if(
       !studentName ||
       !selectedReligion ||
       !selectedTopic ||
-      !religionData[selectedReligion]
+      !religionData[
+        selectedReligion
+      ]
     ){
 
       showErrorPage();
 
-    } else {
+    }
+
+    else{
 
       createPage();
+
+      connectFirebase();
 
     }
 
 
     /*
-      ========================================
+      =============================================
+      ANONYMNÍ PŘIHLÁŠENÍ FIREBASE
+      =============================================
+    */
+
+    async function connectFirebase(){
+
+      setConnectionState(
+        "connecting",
+        "Připojuji k databázi..."
+      );
+
+
+      try{
+
+        await signInAnonymously(
+          auth
+        );
+
+      }
+
+      catch(error){
+
+        console.error(
+          "Chyba anonymního přihlášení:",
+          error
+        );
+
+
+        setConnectionState(
+          "error",
+          "Nepodařilo se připojit k databázi."
+        );
+
+
+        const message =
+          document.getElementById(
+            "message"
+          );
+
+
+        if(message){
+
+          message.textContent =
+            "Firebase přihlášení selhalo. Zkontroluj připojení nebo nastavení Anonymous Authentication.";
+
+          message.className =
+            "message error";
+
+        }
+
+      }
+
+    }
+
+
+    /*
+      Sledujeme stav uživatele.
+    */
+
+    onAuthStateChanged(
+      auth,
+      user => {
+
+        currentUser = user;
+
+
+        const saveButton =
+          document.getElementById(
+            "saveButton"
+          );
+
+
+        if(user){
+
+          setConnectionState(
+            "connected",
+            "Připojeno k databázi."
+          );
+
+
+          if(saveButton){
+
+            saveButton.disabled =
+              false;
+
+          }
+
+        }
+
+      }
+    );
+
+
+    /*
+      =============================================
       VYTVOŘENÍ STRÁNKY
-      ========================================
+      =============================================
     */
 
     function createPage(){
 
       const religion =
-        religionData[selectedReligion];
+        religionData[
+          selectedReligion
+        ];
 
 
       document.documentElement.style
-        .setProperty("--accent", religion.color);
+        .setProperty(
+          "--accent",
+          religion.color
+        );
+
 
       document.documentElement.style
-        .setProperty("--accent-light", religion.light);
+        .setProperty(
+          "--accent-light",
+          religion.light
+        );
 
 
       app.innerHTML = `
@@ -411,13 +760,33 @@
             </div>
 
             <h1>
-              ${escapeHTML(selectedTopic)}
+              ${escapeHTML(
+                selectedTopic
+              )}
             </h1>
 
           </header>
 
 
           <section class="content">
+
+            <div
+              id="connection"
+              class="connection"
+            >
+
+              <div
+                class="connection-dot"
+              ></div>
+
+              <span
+                id="connectionText"
+              >
+                Připojuji k databázi...
+              </span>
+
+            </div>
+
 
             <div class="info-box">
 
@@ -428,7 +797,11 @@
                 </span>
 
                 <div class="info-value">
-                  ${escapeHTML(studentName)}
+
+                  ${escapeHTML(
+                    studentName
+                  )}
+
                 </div>
 
               </div>
@@ -454,7 +827,11 @@
                 </span>
 
                 <div class="info-value">
-                  ${escapeHTML(selectedTopic)}
+
+                  ${escapeHTML(
+                    selectedTopic
+                  )}
+
                 </div>
 
               </div>
@@ -485,7 +862,9 @@
 
             <div class="counter">
 
-              <span id="characterCount">
+              <span
+                id="characterCount"
+              >
                 0
               </span>
 
@@ -509,9 +888,11 @@
                 ← Zpět
               </button>
 
+
               <button
+                id="saveButton"
                 class="save"
-                onclick="saveAnswer()"
+                disabled
               >
                 ULOŽIT PŘÍSPĚVEK
               </button>
@@ -525,13 +906,12 @@
             >
 
               <h3>
-                ✓ Příspěvek byl uložen
+                ✓ Příspěvek byl uložen online
               </h3>
 
               <p>
-                Tvůj zápis je uložen.
-                Pokud chceš něco změnit,
-                můžeš text upravit a znovu kliknout na ULOŽIT.
+                Odpověď je nyní uložená
+                ve společné databázi.
               </p>
 
 
@@ -542,6 +922,7 @@
                 >
                   Vybrat jiné téma
                 </button>
+
 
                 <button
                   onclick="window.location.href='vyber.html'"
@@ -561,24 +942,38 @@
 
 
       /*
-        Po vytvoření stránky načteme
-        případnou dříve uloženou odpověď.
+        Lokální záloha rozepsaného textu.
       */
 
-      loadExistingAnswer();
+      loadLocalDraft();
 
-
-      /*
-        Počítadlo znaků.
-      */
 
       const textarea =
-        document.getElementById("studentText");
+        document.getElementById(
+          "studentText"
+        );
+
 
       textarea.addEventListener(
         "input",
-        updateCounter
+        function(){
+
+          updateCounter();
+
+          saveLocalDraft();
+
+        }
       );
+
+
+      document.getElementById(
+        "saveButton"
+      )
+      .addEventListener(
+        "click",
+        saveAnswer
+      );
+
 
       updateCounter();
 
@@ -586,39 +981,57 @@
 
 
     /*
-      ========================================
-      ULOŽENÍ ODPOVĚDI
-      ========================================
+      =============================================
+      ULOŽENÍ DO FIRESTORE
+      =============================================
     */
 
-    function saveAnswer(){
+    async function saveAnswer(){
 
       const textarea =
-        document.getElementById("studentText");
+        document.getElementById(
+          "studentText"
+        );
+
 
       const message =
-        document.getElementById("message");
+        document.getElementById(
+          "message"
+        );
+
 
       const savedBox =
-        document.getElementById("savedBox");
+        document.getElementById(
+          "savedBox"
+        );
+
+
+      const saveButton =
+        document.getElementById(
+          "saveButton"
+        );
+
 
       const text =
         textarea.value.trim();
 
 
-      /*
-        Kontrola, zda žák něco napsal.
-      */
-
-      if (text.length < 10){
+      if(
+        text.length < 10
+      ){
 
         message.textContent =
           "Napiš prosím alespoň několik vět o svém tématu.";
 
+
         message.className =
           "message error";
 
-        savedBox.classList.remove("show");
+
+        savedBox.classList.remove(
+          "show"
+        );
+
 
         textarea.focus();
 
@@ -627,22 +1040,57 @@
       }
 
 
+      if(
+        !currentUser
+      ){
+
+        message.textContent =
+          "Ještě nejsi připojen/a k databázi. Chvíli počkej a zkus to znovu.";
+
+
+        message.className =
+          "message warning";
+
+
+        return;
+
+      }
+
+
+      saveButton.disabled =
+        true;
+
+
+      saveButton.textContent =
+        "UKLÁDÁM...";
+
+
+      message.textContent =
+        "Ukládám odpověď online...";
+
+
+      message.className =
+        "message warning";
+
+
       /*
-        Vytvoříme unikátní klíč pro odpověď.
-        Obsahuje jméno, náboženství a téma.
+        Jednoznačné ID dokumentu.
+
+        Stejný žák + stejné téma
+        = vždy stejný dokument.
+
+        Díky tomu se při opětovném uložení
+        nevytvoří duplicitní odpověď,
+        ale aktualizuje se původní.
       */
 
-      const answerKey =
-        createAnswerKey(
-          studentName,
+      const answerId =
+        createAnswerId(
+          currentUser.uid,
           selectedReligion,
           selectedTopic
         );
 
-
-      /*
-        Data jednoho příspěvku.
-      */
 
       const answerData = {
 
@@ -653,7 +1101,9 @@
           selectedReligion,
 
         religionName:
-          religionData[selectedReligion].name,
+          religionData[
+            selectedReligion
+          ].name,
 
         topic:
           selectedTopic,
@@ -661,202 +1111,293 @@
         text:
           text,
 
+        uid:
+          currentUser.uid,
+
         savedAt:
-          new Date().toISOString()
+          serverTimestamp()
 
       };
 
 
-      /*
-        Uložení příspěvku.
-      */
-
-      localStorage.setItem(
-        answerKey,
-        JSON.stringify(answerData)
-      );
-
-
-      /*
-        Udržujeme také seznam všech příspěvků
-        uložených na tomto zařízení.
-      */
-
-      let allAnswers = [];
-
       try{
 
-        allAnswers =
-          JSON.parse(
-            localStorage.getItem("allStudentAnswers")
-          ) || [];
+        await setDoc(
 
-      } catch {
+          doc(
+            db,
+            "answers",
+            answerId
+          ),
 
-        allAnswers = [];
-
-      }
-
-
-      /*
-        Pokud už tento žák dané téma uložil,
-        jeho starý zápis aktualizujeme.
-      */
-
-      const existingIndex =
-        allAnswers.findIndex(answer =>
-          answer.student === studentName &&
-          answer.religion === selectedReligion &&
-          answer.topic === selectedTopic
-        );
-
-
-      if (existingIndex !== -1){
-
-        allAnswers[existingIndex] =
-          answerData;
-
-      } else {
-
-        allAnswers.push(
           answerData
-        );
 
-      }
-
-
-      localStorage.setItem(
-        "allStudentAnswers",
-        JSON.stringify(allAnswers)
-      );
-
-
-      /*
-        Potvrzení.
-      */
-
-      message.textContent =
-        "Příspěvek byl úspěšně uložen.";
-
-      message.className =
-        "message success";
-
-      savedBox.classList.add("show");
-
-    }
-
-
-    /*
-      ========================================
-      NAČTENÍ EXISTUJÍCÍ ODPOVĚDI
-      ========================================
-    */
-
-    function loadExistingAnswer(){
-
-      const answerKey =
-        createAnswerKey(
-          studentName,
-          selectedReligion,
-          selectedTopic
         );
 
 
-      const savedAnswer =
-        localStorage.getItem(answerKey);
+        message.textContent =
+          "Příspěvek byl úspěšně uložen do společné databáze.";
 
 
-      if (!savedAnswer){
-        return;
+        message.className =
+          "message success";
+
+
+        savedBox.classList.add(
+          "show"
+        );
+
+
+        /*
+          Lokální zálohu necháme.
+          Pokud chceš, můžeš ji místo toho smazat.
+        */
+
+        saveLocalDraft();
+
       }
 
-
-      try{
-
-        const answer =
-          JSON.parse(savedAnswer);
-
-        document.getElementById(
-          "studentText"
-        ).value = answer.text || "";
-
-      } catch(error){
+      catch(error){
 
         console.error(
-          "Nepodařilo se načíst odpověď:",
+          "Chyba při ukládání do Firebase:",
           error
         );
 
+
+        message.textContent =
+          "Odpověď se nepodařilo uložit. Zkontroluj internet nebo pravidla Firestore.";
+
+
+        message.className =
+          "message error";
+
+
+        savedBox.classList.remove(
+          "show"
+        );
+
+      }
+
+      finally{
+
+        saveButton.disabled =
+          false;
+
+
+        saveButton.textContent =
+          "ULOŽIT PŘÍSPĚVEK";
+
       }
 
     }
 
 
     /*
-      ========================================
-      KLÍČ PRO ODPOVĚĎ
-      ========================================
+      =============================================
+      ID ODPOVĚDI
+      =============================================
     */
 
-    function createAnswerKey(
-      student,
+    function createAnswerId(
+      uid,
       religion,
       topic
     ){
 
       return (
-        "answer_" +
-        normalizeText(student) +
+        uid +
         "_" +
-        normalizeText(religion) +
+        normalizeText(
+          religion
+        ) +
         "_" +
-        normalizeText(topic)
+        normalizeText(
+          topic
+        )
       );
 
     }
 
 
     /*
-      Převede text na bezpečný tvar
-      vhodný pro klíč localStorage.
+      =============================================
+      LOKÁLNÍ ZÁLOHA ROZEPSANÉHO TEXTU
+      =============================================
     */
 
-    function normalizeText(text){
+    function createDraftKey(){
 
-      return text
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "_")
-        .replace(/^_+|_+$/g, "");
+      return (
+        "draft_" +
+        normalizeText(
+          studentName
+        ) +
+        "_" +
+        normalizeText(
+          selectedReligion
+        ) +
+        "_" +
+        normalizeText(
+          selectedTopic
+        )
+      );
+
+    }
+
+
+    function saveLocalDraft(){
+
+      const textarea =
+        document.getElementById(
+          "studentText"
+        );
+
+
+      if(
+        !textarea
+      ){
+        return;
+      }
+
+
+      localStorage.setItem(
+        createDraftKey(),
+        textarea.value
+      );
+
+    }
+
+
+    function loadLocalDraft(){
+
+      const textarea =
+        document.getElementById(
+          "studentText"
+        );
+
+
+      const savedDraft =
+        localStorage.getItem(
+          createDraftKey()
+        );
+
+
+      if(
+        textarea &&
+        savedDraft
+      ){
+
+        textarea.value =
+          savedDraft;
+
+      }
 
     }
 
 
     /*
-      ========================================
+      =============================================
+      STAV PŘIPOJENÍ
+      =============================================
+    */
+
+    function setConnectionState(
+      state,
+      text
+    ){
+
+      const box =
+        document.getElementById(
+          "connection"
+        );
+
+
+      const label =
+        document.getElementById(
+          "connectionText"
+        );
+
+
+      if(
+        !box ||
+        !label
+      ){
+        return;
+      }
+
+
+      box.classList.remove(
+        "connected",
+        "error"
+      );
+
+
+      if(
+        state === "connected"
+      ){
+
+        box.classList.add(
+          "connected"
+        );
+
+      }
+
+
+      if(
+        state === "error"
+      ){
+
+        box.classList.add(
+          "error"
+        );
+
+      }
+
+
+      label.textContent =
+        text;
+
+    }
+
+
+    /*
+      =============================================
       POČÍTADLO ZNAKŮ
-      ========================================
+      =============================================
     */
 
     function updateCounter(){
 
       const textarea =
-        document.getElementById("studentText");
+        document.getElementById(
+          "studentText"
+        );
+
 
       const counter =
-        document.getElementById("characterCount");
+        document.getElementById(
+          "characterCount"
+        );
 
-      counter.textContent =
-        textarea.value.length;
+
+      if(
+        textarea &&
+        counter
+      ){
+
+        counter.textContent =
+          textarea.value.length;
+
+      }
 
     }
 
 
     /*
-      ========================================
+      =============================================
       CHYBOVÁ STRÁNKA
-      ========================================
+      =============================================
     */
 
     function showErrorPage(){
@@ -889,19 +1430,68 @@
 
 
     /*
-      ========================================
-      OCHRANA TEXTU
-      ========================================
+      =============================================
+      NORMALIZACE TEXTU
+      =============================================
+    */
+
+    function normalizeText(text){
+
+      return text
+        .normalize("NFD")
+        .replace(
+          /[\u0300-\u036f]/g,
+          ""
+        )
+        .toLowerCase()
+        .replace(
+          /[^a-z0-9]+/g,
+          "_"
+        )
+        .replace(
+          /^_+|_+$/g,
+          ""
+        );
+
+    }
+
+
+    /*
+      =============================================
+      OCHRANA HTML
+      =============================================
     */
 
     function escapeHTML(text){
 
+      if(
+        typeof text !== "string"
+      ){
+        return "";
+      }
+
+
       return text
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
 
     }
 
