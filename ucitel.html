@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Učitelský režim | Třídní kniha</title>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Učitelský režim | Třídní kniha
+  </title>
+
 
   <style>
+
     :root{
+
       --bg:#f1ece2;
       --paper:#fffdf8;
       --ink:#2d2a26;
@@ -22,474 +33,963 @@
 
       --success:#3e6b57;
       --danger:#a3342d;
-      --warning:#ad7426;
+      --warning:#a36d20;
 
-      --shadow:0 18px 45px rgba(55,42,28,.13);
+      --shadow:
+        0 18px 45px
+        rgba(55,42,28,.13);
+
     }
+
 
     *{
       box-sizing:border-box;
     }
 
+
     html{
       scroll-behavior:smooth;
     }
 
+
     body{
+
       margin:0;
-      font-family:Georgia, "Times New Roman", serif;
+
+      min-height:100vh;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       color:var(--ink);
 
       background:
-        radial-gradient(circle at 15% 15%, rgba(122,87,56,.07), transparent 28%),
-        radial-gradient(circle at 85% 80%, rgba(62,107,87,.07), transparent 30%),
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(122,87,56,.07),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 85% 80%,
+          rgba(62,107,87,.07),
+          transparent 30%
+        ),
         var(--bg);
 
-      min-height:100vh;
     }
+
 
     button,
     textarea{
       font-family:inherit;
     }
 
+
     /* ============================= */
-    /* HLAVIČKA */
+    /* HORNÍ LIŠTA */
     /* ============================= */
 
     .topbar{
-      background:#2d2a26;
-      color:white;
-      padding:16px 26px;
-
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
 
       position:sticky;
+
       top:0;
+
       z-index:100;
 
-      box-shadow:0 4px 15px rgba(0,0,0,.16);
-    }
+      background:#2d2a26;
 
-    .topbar-left{
+      color:white;
+
+      padding:
+        15px 26px;
+
       display:flex;
+
+      justify-content:
+        space-between;
+
       align-items:center;
-      gap:14px;
+
+      gap:18px;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.16);
+
     }
 
-    .topbar-title{
-      font-weight:700;
-      font-size:1.05rem;
-    }
 
     .teacher-label{
-      font-size:.75rem;
-      text-transform:uppercase;
+
+      text-transform:
+        uppercase;
+
       letter-spacing:.12em;
+
+      font-size:.7rem;
+
       color:#cfc6ba;
+
+      margin-bottom:3px;
+
     }
+
+
+    .topbar-title{
+
+      font-size:1.05rem;
+
+      font-weight:700;
+
+    }
+
 
     .topbar-buttons{
+
       display:flex;
-      gap:10px;
+
       flex-wrap:wrap;
+
+      gap:9px;
+
     }
+
 
     .top-button{
-      border:1px solid rgba(255,255,255,.25);
-      background:transparent;
+
+      border:
+        1px solid
+        rgba(255,255,255,.25);
+
+      background:
+        transparent;
+
       color:white;
+
       border-radius:9px;
-      padding:9px 13px;
+
+      padding:
+        9px 12px;
+
       cursor:pointer;
+
       transition:.2s;
+
     }
+
 
     .top-button:hover{
-      background:rgba(255,255,255,.1);
+
+      background:
+        rgba(255,255,255,.1);
+
     }
 
+
+    .top-button.logout{
+
+      background:#74362f;
+
+      border-color:#74362f;
+
+    }
+
+
     /* ============================= */
-    /* OBSAH */
+    /* HLAVNÍ OBSAH */
     /* ============================= */
 
     .wrapper{
-      width:min(1200px, calc(100% - 30px));
-      margin:30px auto 70px;
+
+      width:
+        min(
+          1200px,
+          calc(100% - 30px)
+        );
+
+      margin:
+        30px auto 70px;
+
     }
+
 
     .hero{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:36px 40px;
-      box-shadow:var(--shadow);
-      margin-bottom:26px;
+
+      background:
+        var(--paper);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        22px;
+
+      padding:
+        36px 40px;
+
+      box-shadow:
+        var(--shadow);
+
+      margin-bottom:
+        24px;
+
     }
+
 
     .hero-eyebrow{
-      text-transform:uppercase;
+
+      text-transform:
+        uppercase;
+
       letter-spacing:.14em;
+
       font-size:.72rem;
-      color:var(--muted);
+
+      color:
+        var(--muted);
+
       font-weight:700;
+
       margin-bottom:10px;
+
     }
+
 
     .hero h1{
-      margin:0 0 12px;
-      font-size:clamp(2rem,5vw,3.4rem);
+
+      margin:
+        0 0 12px;
+
+      font-size:
+        clamp(
+          2rem,
+          5vw,
+          3.4rem
+        );
+
     }
 
+
     .hero p{
+
       margin:0;
+
       max-width:760px;
-      color:var(--muted);
+
+      color:
+        var(--muted);
+
       line-height:1.65;
+
     }
+
+
+    /* ============================= */
+    /* FIREBASE STAV */
+    /* ============================= */
+
+    .connection{
+
+      margin-top:24px;
+
+      display:flex;
+
+      align-items:center;
+
+      gap:9px;
+
+      padding:
+        11px 14px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:12px;
+
+      background:white;
+
+      font-size:.87rem;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    .connection-dot{
+
+      width:10px;
+
+      height:10px;
+
+      border-radius:50%;
+
+      background:
+        var(--warning);
+
+    }
+
+
+    .connection.connected
+    .connection-dot{
+
+      background:
+        var(--success);
+
+    }
+
+
+    .connection.error
+    .connection-dot{
+
+      background:
+        var(--danger);
+
+    }
+
 
     /* ============================= */
     /* STATISTIKY */
     /* ============================= */
 
     .stats{
+
       display:grid;
-      grid-template-columns:repeat(4,1fr);
+
+      grid-template-columns:
+        repeat(4,1fr);
+
       gap:14px;
-      margin-top:28px;
+
+      margin-top:25px;
+
     }
+
 
     .stat{
-      background:#fff;
-      border:1px solid var(--line);
+
+      background:white;
+
+      border:
+        1px solid
+        var(--line);
+
       border-radius:14px;
-      padding:17px 18px;
+
+      padding:
+        17px 18px;
+
     }
+
 
     .stat-label{
-      text-transform:uppercase;
+
+      text-transform:
+        uppercase;
+
       letter-spacing:.08em;
-      font-size:.7rem;
-      color:var(--muted);
-      margin-bottom:5px;
+
+      font-size:.68rem;
+
+      color:
+        var(--muted);
+
       font-weight:700;
+
+      margin-bottom:5px;
+
     }
 
+
     .stat-value{
+
       font-size:1.65rem;
+
       font-weight:700;
+
     }
+
 
     /* ============================= */
     /* NAVIGACE */
     /* ============================= */
 
     .religion-nav{
+
       display:grid;
-      grid-template-columns:1fr 1fr;
+
+      grid-template-columns:
+        1fr 1fr;
+
       gap:14px;
+
       margin-bottom:30px;
+
     }
+
 
     .religion-link{
+
       border:none;
+
       border-radius:15px;
+
       padding:18px;
+
       font-size:1.05rem;
+
       font-weight:700;
+
       cursor:pointer;
+
       transition:.2s;
+
     }
+
 
     .religion-link:hover{
-      transform:translateY(-2px);
+
+      transform:
+        translateY(-2px);
+
     }
+
 
     .religion-link.christian{
-      background:var(--christian);
+
+      background:
+        var(--christian);
+
       color:white;
+
     }
+
 
     .religion-link.islam{
-      background:var(--islam);
+
+      background:
+        var(--islam);
+
       color:white;
+
     }
 
+
     /* ============================= */
-    /* SEKCE NÁBOŽENSTVÍ */
+    /* SEKCE */
     /* ============================= */
 
     .religion-section{
+
       margin-top:40px;
+
     }
+
 
     .religion-heading{
+
       display:flex;
+
       align-items:center;
+
       gap:15px;
+
       margin-bottom:18px;
+
     }
+
 
     .religion-icon{
+
       width:55px;
+
       height:55px;
+
       border-radius:50%;
+
       display:grid;
+
       place-items:center;
+
       color:white;
+
       font-size:1.8rem;
-      flex:0 0 auto;
+
     }
 
-    .religion-heading.christian .religion-icon{
-      background:var(--christian);
+
+    .religion-heading.christian
+    .religion-icon{
+
+      background:
+        var(--christian);
+
     }
 
-    .religion-heading.islam .religion-icon{
-      background:var(--islam);
+
+    .religion-heading.islam
+    .religion-icon{
+
+      background:
+        var(--islam);
+
     }
+
 
     .religion-heading h2{
+
       margin:0;
+
       font-size:2rem;
+
     }
 
+
     .religion-heading p{
-      margin:3px 0 0;
-      color:var(--muted);
+
+      margin:
+        3px 0 0;
+
+      color:
+        var(--muted);
+
     }
+
 
     /* ============================= */
     /* TÉMA */
     /* ============================= */
 
     .topic-card{
-      background:var(--paper);
-      border:1px solid var(--line);
+
+      background:
+        var(--paper);
+
+      border:
+        1px solid
+        var(--line);
+
       border-radius:20px;
+
       overflow:hidden;
-      box-shadow:0 8px 23px rgba(55,42,28,.07);
+
+      box-shadow:
+        0 8px 23px
+        rgba(55,42,28,.07);
+
       margin-bottom:18px;
+
     }
+
 
     .topic-header{
-      padding:20px 24px;
+
+      padding:
+        20px 24px;
+
       display:flex;
+
       align-items:center;
-      justify-content:space-between;
+
+      justify-content:
+        space-between;
+
       gap:16px;
+
       cursor:pointer;
+
     }
 
-    .topic-card.christian .topic-header{
-      background:var(--christian-light);
+
+    .topic-card.christian
+    .topic-header{
+
+      background:
+        var(--christian-light);
+
     }
 
-    .topic-card.islam .topic-header{
-      background:var(--islam-light);
+
+    .topic-card.islam
+    .topic-header{
+
+      background:
+        var(--islam-light);
+
     }
 
-    .topic-header-left{
-      min-width:0;
-    }
 
     .topic-number{
+
       font-size:.72rem;
-      text-transform:uppercase;
+
+      text-transform:
+        uppercase;
+
       letter-spacing:.1em;
-      color:var(--muted);
+
+      color:
+        var(--muted);
+
       margin-bottom:4px;
+
     }
+
 
     .topic-title{
+
       font-size:1.35rem;
+
       font-weight:700;
+
     }
+
 
     .topic-status{
+
       display:flex;
+
       align-items:center;
+
       gap:10px;
-      flex:0 0 auto;
+
     }
+
 
     .count{
+
       border-radius:999px;
-      padding:7px 11px;
+
+      padding:
+        7px 11px;
+
       font-size:.8rem;
+
       font-weight:700;
+
       background:white;
-      border:1px solid var(--line);
+
+      border:
+        1px solid
+        var(--line);
+
     }
+
 
     .toggle-icon{
-      font-size:1.2rem;
+
       transition:.2s;
+
     }
 
-    .topic-card.open .toggle-icon{
-      transform:rotate(180deg);
+
+    .topic-card.open
+    .toggle-icon{
+
+      transform:
+        rotate(180deg);
+
     }
+
 
     .topic-content{
+
       display:none;
+
       padding:24px;
+
     }
 
-    .topic-card.open .topic-content{
+
+    .topic-card.open
+    .topic-content{
+
       display:block;
+
     }
 
-    /* ============================= */
-    /* ŽÁKOVSKÉ ODPOVĚDI */
-    /* ============================= */
 
-    .answers-title{
-      margin:0 0 14px;
-      font-size:1.1rem;
-    }
+    /* ============================= */
+    /* ODPOVĚDI */
+    /* ============================= */
 
     .answers-grid{
+
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+
+      grid-template-columns:
+        repeat(3,1fr);
+
       gap:14px;
+
       margin-bottom:26px;
+
     }
+
 
     .answer-card{
-      border:1px solid var(--line);
+
+      border:
+        1px solid
+        var(--line);
+
       background:white;
+
       border-radius:14px;
+
       padding:17px;
+
       min-height:150px;
+
     }
+
 
     .answer-name{
+
       font-weight:700;
+
       margin-bottom:10px;
-      font-size:.95rem;
+
     }
+
 
     .answer-text{
+
       color:#4f4942;
+
       line-height:1.55;
+
       font-size:.94rem;
-      white-space:pre-wrap;
-      overflow-wrap:anywhere;
+
+      white-space:
+        pre-wrap;
+
+      overflow-wrap:
+        anywhere;
+
     }
+
 
     .answer-time{
+
       margin-top:14px;
+
       padding-top:10px;
-      border-top:1px solid #eee6da;
+
+      border-top:
+        1px solid
+        #eee6da;
+
       font-size:.74rem;
-      color:var(--muted);
+
+      color:
+        var(--muted);
+
     }
 
+
     .empty-answer{
-      border:1px dashed #ccc0b0;
+
+      border:
+        1px dashed
+        #ccc0b0;
+
       border-radius:14px;
+
       padding:20px;
-      color:var(--muted);
+
+      color:
+        var(--muted);
+
       font-style:italic;
-      display:flex;
-      justify-content:center;
-      align-items:center;
+
       min-height:150px;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
       text-align:center;
+
     }
+
 
     /* ============================= */
     /* FINÁLNÍ TEXT */
     /* ============================= */
 
     .final-area{
-      border-top:1px solid var(--line);
+
+      border-top:
+        1px solid
+        var(--line);
+
       padding-top:24px;
+
     }
+
 
     .final-area h4{
-      margin:0 0 7px;
+
+      margin:
+        0 0 7px;
+
       font-size:1.15rem;
+
     }
+
 
     .final-description{
-      margin:0 0 12px;
-      color:var(--muted);
+
+      margin:
+        0 0 12px;
+
+      color:
+        var(--muted);
+
       font-size:.9rem;
+
       line-height:1.5;
+
     }
 
+
     .final-text{
+
       width:100%;
+
       min-height:180px;
+
       resize:vertical;
 
-      border:1px solid #cfc3b1;
+      border:
+        1px solid
+        #cfc3b1;
+
       border-radius:13px;
+
       padding:16px;
 
       font-size:1rem;
+
       line-height:1.6;
 
-      background:#fff;
-      color:var(--ink);
+      background:white;
+
+      color:
+        var(--ink);
 
       outline:none;
+
     }
+
 
     .final-text:focus{
+
       border-color:#8d745c;
-      box-shadow:0 0 0 4px rgba(122,87,56,.09);
+
+      box-shadow:
+        0 0 0 4px
+        rgba(122,87,56,.09);
+
     }
+
 
     .final-footer{
+
       display:flex;
-      justify-content:space-between;
+
+      justify-content:
+        space-between;
+
       align-items:center;
+
       gap:15px;
+
       margin-top:11px;
+
     }
+
 
     .save-state{
+
       min-height:22px;
+
       font-size:.85rem;
-      color:var(--success);
+
+      color:
+        var(--success);
+
     }
+
 
     .save-button{
+
       border:none;
+
       border-radius:10px;
-      padding:11px 18px;
+
+      padding:
+        11px 18px;
+
       color:white;
+
       cursor:pointer;
+
       font-weight:700;
+
     }
 
-    .topic-card.christian .save-button{
-      background:var(--christian);
+
+    .topic-card.christian
+    .save-button{
+
+      background:
+        var(--christian);
+
     }
 
-    .topic-card.islam .save-button{
-      background:var(--islam);
+
+    .topic-card.islam
+    .save-button{
+
+      background:
+        var(--islam);
+
     }
 
-    .save-button:hover{
-      filter:brightness(.9);
-    }
 
     /* ============================= */
-    /* PRÁZDNÝ STAV */
+    /* NAČÍTÁNÍ */
     /* ============================= */
 
-    .no-data{
+    .loading{
+
+      background:
+        var(--paper);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:18px;
+
+      padding:40px;
+
       text-align:center;
-      padding:24px;
-      color:var(--muted);
+
+      color:
+        var(--muted);
+
     }
+
 
     /* ============================= */
     /* RESPONSIVE */
@@ -498,79 +998,110 @@
     @media(max-width:900px){
 
       .stats{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+          repeat(2,1fr);
+
       }
 
+
       .answers-grid{
-        grid-template-columns:1fr;
+
+        grid-template-columns:
+          1fr;
+
       }
 
     }
 
+
     @media(max-width:650px){
 
       .topbar{
-        align-items:flex-start;
-        flex-direction:column;
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+
       }
+
 
       .wrapper{
-        width:min(100% - 20px,1200px);
+
+        width:
+          calc(100% - 20px);
+
         margin-top:18px;
+
       }
+
 
       .hero{
-        padding:28px 22px;
+
+        padding:
+          28px 22px;
+
       }
 
-      .stats{
-        grid-template-columns:1fr 1fr;
-      }
 
       .religion-nav{
-        grid-template-columns:1fr;
+
+        grid-template-columns:
+          1fr;
+
       }
 
-      .topic-header{
-        align-items:flex-start;
-      }
 
       .topic-content{
+
         padding:18px;
+
       }
+
 
       .final-footer{
-        flex-direction:column;
-        align-items:stretch;
+
+        flex-direction:
+          column;
+
+        align-items:
+          stretch;
+
       }
 
+
       .save-button{
+
         width:100%;
+
       }
 
     }
 
   </style>
+
 </head>
+
 
 <body>
 
-  <!-- ======================================== -->
+
+  <!-- ============================= -->
   <!-- HORNÍ LIŠTA -->
-  <!-- ======================================== -->
+  <!-- ============================= -->
 
   <header class="topbar">
 
-    <div class="topbar-left">
+    <div>
 
-      <div>
-        <div class="teacher-label">
-          Učitelský režim
-        </div>
+      <div class="teacher-label">
+        Učitelský režim
+      </div>
 
-        <div class="topbar-title">
-          Třídní kniha: Křesťanství × Islám
-        </div>
+      <div class="topbar-title">
+        Křesťanství × Islám
       </div>
 
     </div>
@@ -585,6 +1116,7 @@
         Rozbalit vše
       </button>
 
+
       <button
         class="top-button"
         onclick="collapseAll()"
@@ -592,11 +1124,20 @@
         Sbalit vše
       </button>
 
+
       <button
         class="top-button"
-        onclick="window.location.href='index.html'"
+        onclick="window.location.href='kniha.html'"
       >
-        Žákovská část
+        Otevřít knihu
+      </button>
+
+
+      <button
+        class="top-button logout"
+        onclick="logoutTeacher()"
+      >
+        Odhlásit
       </button>
 
     </div>
@@ -604,32 +1145,48 @@
   </header>
 
 
-  <!-- ======================================== -->
-  <!-- OBSAH -->
-  <!-- ======================================== -->
-
   <main class="wrapper">
+
 
     <section class="hero">
 
       <div class="hero-eyebrow">
-        Správa společné knihy
+        Správa třídní knihy
       </div>
 
       <h1>
-        Učitelský režim
+        Odpovědi žáků
       </h1>
 
       <p>
-        U každého tématu vidíš všechny uložené příspěvky žáků.
-        Pod nimi můžeš vytvořit výsledný text, který se později
-        použije v tištěné knížečce.
+        Odpovědi se načítají ze společné databáze Firebase.
+        U každého tématu můžeš porovnat příspěvky žáků
+        a vytvořit výsledný text do knížečky.
       </p>
+
+
+      <div
+        id="connection"
+        class="connection"
+      >
+
+        <div
+          class="connection-dot"
+        ></div>
+
+        <span
+          id="connectionText"
+        >
+          Připojuji k databázi...
+        </span>
+
+      </div>
 
 
       <div class="stats">
 
         <div class="stat">
+
           <div class="stat-label">
             Příspěvků celkem
           </div>
@@ -640,10 +1197,12 @@
           >
             0
           </div>
+
         </div>
 
 
         <div class="stat">
+
           <div class="stat-label">
             Křesťanství
           </div>
@@ -654,10 +1213,12 @@
           >
             0
           </div>
+
         </div>
 
 
         <div class="stat">
+
           <div class="stat-label">
             Islám
           </div>
@@ -668,10 +1229,12 @@
           >
             0
           </div>
+
         </div>
 
 
         <div class="stat">
+
           <div class="stat-label">
             Hotových textů
           </div>
@@ -682,6 +1245,7 @@
           >
             0
           </div>
+
         </div>
 
       </div>
@@ -698,6 +1262,7 @@
         ✝ Křesťanství
       </button>
 
+
       <button
         class="religion-link islam"
         onclick="scrollToSection('islam')"
@@ -708,12 +1273,115 @@
     </div>
 
 
-    <div id="religionsContainer"></div>
+    <div id="religionsContainer">
+
+      <div class="loading">
+        Načítám odpovědi žáků...
+      </div>
+
+    </div>
 
   </main>
 
 
-  <script>
+  <script type="module">
+
+
+    /*
+      ==========================================
+      OCHRANA UČITELSKÉ STRÁNKY
+      ==========================================
+    */
+
+    const teacherLoggedIn =
+      sessionStorage.getItem(
+        "teacherLoggedIn"
+      );
+
+
+    if(
+      teacherLoggedIn !== "true"
+    ){
+
+      window.location.href =
+        "index.html";
+
+    }
+
+
+    /*
+      ==========================================
+      FIREBASE
+      ==========================================
+    */
+
+    import {
+      initializeApp
+    }
+    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+    import {
+      getFirestore,
+      collection,
+      getDocs,
+      query,
+      orderBy
+    }
+    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+    import {
+      getAuth,
+      signInAnonymously,
+      onAuthStateChanged
+    }
+    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+    const firebaseConfig = {
+
+      apiKey:
+        "AIzaSyBi0BPMajByRf987HFeTZIDHFvJVm7XR1g",
+
+      authDomain:
+        "nabozenstvi-8fc06.firebaseapp.com",
+
+      projectId:
+        "nabozenstvi-8fc06",
+
+      storageBucket:
+        "nabozenstvi-8fc06.firebasestorage.app",
+
+      messagingSenderId:
+        "409593452616",
+
+      appId:
+        "1:409593452616:web:77e75288e6b5c0d300e07d",
+
+      measurementId:
+        "G-8PXRR79VV1"
+
+    };
+
+
+    const firebaseApp =
+      initializeApp(
+        firebaseConfig
+      );
+
+
+    const db =
+      getFirestore(
+        firebaseApp
+      );
+
+
+    const auth =
+      getAuth(
+        firebaseApp
+      );
+
 
     /*
       ==========================================
@@ -724,27 +1392,48 @@
     const topics = {
 
       krestanstvi: [
+
         "Vznik",
+
         "Symboly",
+
         "Organizace",
+
         "Rozdělení",
+
         "Kniha",
+
         "Kde se modlí",
+
         "Známý příběh",
+
         "Svátky",
+
         "Známí lidé"
+
       ],
 
+
       islam: [
+
         "Vznik",
+
         "Symboly",
+
         "5 pilířů",
+
         "Rozšíření",
+
         "Kniha",
+
         "Kde se modlí",
+
         "Poutní místo",
+
         "Arabská věda",
+
         "Známí lidé"
+
       ]
 
     };
@@ -753,15 +1442,30 @@
     const religionData = {
 
       krestanstvi: {
-        name:"Křesťanství",
-        icon:"✝",
-        className:"christian"
+
+        name:
+          "Křesťanství",
+
+        icon:
+          "✝",
+
+        className:
+          "christian"
+
       },
 
+
       islam: {
-        name:"Islám",
-        icon:"☪",
-        className:"islam"
+
+        name:
+          "Islám",
+
+        icon:
+          "☪",
+
+        className:
+          "islam"
+
       }
 
     };
@@ -769,47 +1473,28 @@
 
     /*
       ==========================================
-      NAČTENÍ ŽÁKOVSKÝCH ODPOVĚDÍ
+      DATA
       ==========================================
     */
 
     let allAnswers = [];
 
-    try{
-
-      allAnswers =
-        JSON.parse(
-          localStorage.getItem("allStudentAnswers")
-        ) || [];
-
-    } catch(error){
-
-      console.error(
-        "Chyba při načítání odpovědí:",
-        error
-      );
-
-      allAnswers = [];
-
-    }
-
-
-    /*
-      ==========================================
-      NAČTENÍ FINÁLNÍCH TEXTŮ
-      ==========================================
-    */
 
     let finalTexts = {};
+
 
     try{
 
       finalTexts =
         JSON.parse(
-          localStorage.getItem("finalBookTexts")
+          localStorage.getItem(
+            "finalBookTexts"
+          )
         ) || {};
 
-    } catch(error){
+    }
+
+    catch{
 
       finalTexts = {};
 
@@ -818,12 +1503,149 @@
 
     /*
       ==========================================
-      VYKRESLENÍ STRÁNKY
+      PŘIPOJENÍ
       ==========================================
     */
 
-    renderAll();
+    connectFirebase();
 
+
+    async function connectFirebase(){
+
+      setConnectionState(
+        "connecting",
+        "Připojuji k Firebase..."
+      );
+
+
+      try{
+
+        await signInAnonymously(
+          auth
+        );
+
+      }
+
+      catch(error){
+
+        console.error(error);
+
+
+        setConnectionState(
+          "error",
+          "Přihlášení do Firebase se nepodařilo."
+        );
+
+      }
+
+    }
+
+
+    onAuthStateChanged(
+      auth,
+
+      async user => {
+
+        if(!user){
+          return;
+        }
+
+
+        setConnectionState(
+          "connected",
+          "Připojeno. Načítám odpovědi..."
+        );
+
+
+        await loadAnswers();
+
+      }
+    );
+
+
+    /*
+      ==========================================
+      NAČTENÍ ODPOVĚDÍ Z FIRESTORE
+      ==========================================
+    */
+
+    async function loadAnswers(){
+
+      try{
+
+        const answersQuery =
+          query(
+            collection(
+              db,
+              "answers"
+            ),
+            orderBy(
+              "savedAt",
+              "asc"
+            )
+          );
+
+
+        const snapshot =
+          await getDocs(
+            answersQuery
+          );
+
+
+        allAnswers = [];
+
+
+        snapshot.forEach(
+          documentSnapshot => {
+
+            allAnswers.push({
+
+              id:
+                documentSnapshot.id,
+
+              ...documentSnapshot.data()
+
+            });
+
+          }
+        );
+
+
+        renderAll();
+
+
+        setConnectionState(
+          "connected",
+          "Připojeno k databázi • načteno " +
+          allAnswers.length +
+          " příspěvků."
+        );
+
+      }
+
+      catch(error){
+
+        console.error(
+          "Chyba při načítání:",
+          error
+        );
+
+
+        setConnectionState(
+          "error",
+          "Odpovědi se nepodařilo načíst. Zkontroluj Firestore Rules."
+        );
+
+      }
+
+    }
+
+
+    /*
+      ==========================================
+      VYKRESLENÍ
+      ==========================================
+    */
 
     function renderAll(){
 
@@ -832,7 +1654,9 @@
           "religionsContainer"
         );
 
-      container.innerHTML = "";
+
+      container.innerHTML =
+        "";
 
 
       container.appendChild(
@@ -856,7 +1680,7 @@
 
     /*
       ==========================================
-      SEKCE NÁBOŽENSTVÍ
+      NÁBOŽENSTVÍ
       ==========================================
     */
 
@@ -865,14 +1689,20 @@
     ){
 
       const religion =
-        religionData[religionKey];
+        religionData[
+          religionKey
+        ];
 
 
       const section =
-        document.createElement("section");
+        document.createElement(
+          "section"
+        );
+
 
       section.className =
         "religion-section";
+
 
       section.id =
         religionKey;
@@ -881,8 +1711,10 @@
       section.innerHTML = `
 
         <div
-          class="religion-heading
-          ${religion.className}"
+          class="
+            religion-heading
+            ${religion.className}
+          "
         >
 
           <div class="religion-icon">
@@ -906,20 +1738,22 @@
       `;
 
 
-      topics[religionKey]
-        .forEach(
-          (topic,index) => {
+      topics[
+        religionKey
+      ]
+      .forEach(
+        (topic,index) => {
 
-            section.appendChild(
-              createTopicCard(
-                religionKey,
-                topic,
-                index
-              )
-            );
+          section.appendChild(
+            createTopicCard(
+              religionKey,
+              topic,
+              index
+            )
+          );
 
-          }
-        );
+        }
+      );
 
 
       return section;
@@ -929,7 +1763,7 @@
 
     /*
       ==========================================
-      KARTA TÉMATU
+      TÉMA
       ==========================================
     */
 
@@ -940,33 +1774,35 @@
     ){
 
       const religion =
-        religionData[religionKey];
+        religionData[
+          religionKey
+        ];
 
-
-      /*
-        Najdeme všechny odpovědi
-        patřící k tomuto tématu.
-      */
 
       const answers =
         allAnswers.filter(
           answer =>
-            answer.religion === religionKey &&
-            answer.topic === topic
+
+            answer.religion ===
+              religionKey
+
+            &&
+
+            answer.topic ===
+              topic
         );
 
 
       const card =
-        document.createElement("article");
+        document.createElement(
+          "article"
+        );
 
 
       card.className =
-        `topic-card ${religion.className}`;
+        "topic-card " +
+        religion.className;
 
-
-      /*
-        Klíč finálního textu.
-      */
 
       const finalKey =
         createFinalKey(
@@ -976,17 +1812,17 @@
 
 
       const currentFinalText =
-        finalTexts[finalKey] || "";
+        finalTexts[
+          finalKey
+        ] || "";
 
-
-      /*
-        Žákovské odpovědi.
-      */
 
       let answersHTML = "";
 
 
-      if(answers.length === 0){
+      if(
+        answers.length === 0
+      ){
 
         answersHTML = `
 
@@ -996,27 +1832,37 @@
 
         `;
 
-      } else {
+      }
+
+      else{
 
         answersHTML =
           answers
           .map(
             answer => `
+
               <div class="answer-card">
 
                 <div class="answer-name">
-                  ${escapeHTML(answer.student)}
+                  ${escapeHTML(
+                    answer.student || "Bez jména"
+                  )}
                 </div>
 
                 <div class="answer-text">
-                  ${escapeHTML(answer.text)}
+                  ${escapeHTML(
+                    answer.text || ""
+                  )}
                 </div>
 
                 <div class="answer-time">
-                  ${formatDate(answer.savedAt)}
+                  ${formatTimestamp(
+                    answer.savedAt
+                  )}
                 </div>
 
               </div>
+
             `
           )
           .join("");
@@ -1024,22 +1870,17 @@
       }
 
 
-      /*
-        Doplníme prázdná místa do tří.
-      */
-
       if(
         answers.length > 0 &&
         answers.length < 3
       ){
 
-        const emptyCount =
-          3 - answers.length;
-
-
         for(
-          let i = 0;
-          i < emptyCount;
+          let i =
+            answers.length;
+
+          i < 3;
+
           i++
         ){
 
@@ -1060,10 +1901,9 @@
 
         <div
           class="topic-header"
-          onclick="toggleTopic(this)"
         >
 
-          <div class="topic-header-left">
+          <div>
 
             <div class="topic-number">
               Téma ${index + 1}
@@ -1093,13 +1933,10 @@
 
         <div class="topic-content">
 
-          <h3 class="answers-title">
-            Příspěvky žáků
-          </h3>
-
-
           <div class="answers-grid">
+
             ${answersHTML}
+
           </div>
 
 
@@ -1109,9 +1946,10 @@
               Finální text do knížečky
             </h4>
 
+
             <p class="final-description">
-              Zde můžeš spojit, zkrátit nebo upravit
-              informace od všech žáků.
+              Zde můžeš z příspěvků vytvořit
+              výsledný text pro tisk.
             </p>
 
 
@@ -1119,7 +1957,9 @@
               class="final-text"
               id="${finalKey}"
               placeholder="Sem napiš výsledný text tématu..."
-            >${escapeHTML(currentFinalText)}</textarea>
+            >${escapeHTML(
+              currentFinalText
+            )}</textarea>
 
 
             <div class="final-footer">
@@ -1129,12 +1969,11 @@
                 id="status_${finalKey}"
               ></div>
 
+
               <button
                 class="save-button"
-                onclick="saveFinalText(
-                  '${religionKey}',
-                  '${escapeJS(topic)}'
-                )"
+                data-religion="${religionKey}"
+                data-topic="${escapeHTML(topic)}"
               >
                 ULOŽIT FINÁLNÍ TEXT
               </button>
@@ -1148,6 +1987,47 @@
       `;
 
 
+      /*
+        Rozbalování.
+      */
+
+      card
+        .querySelector(
+          ".topic-header"
+        )
+        .addEventListener(
+          "click",
+          () => {
+
+            card.classList.toggle(
+              "open"
+            );
+
+          }
+        );
+
+
+      /*
+        Uložení výsledného textu.
+      */
+
+      card
+        .querySelector(
+          ".save-button"
+        )
+        .addEventListener(
+          "click",
+          () => {
+
+            saveFinalText(
+              religionKey,
+              topic
+            );
+
+          }
+        );
+
+
       return card;
 
     }
@@ -1155,59 +2035,7 @@
 
     /*
       ==========================================
-      OTEVŘENÍ / ZAVŘENÍ TÉMATU
-      ==========================================
-    */
-
-    function toggleTopic(header){
-
-      const card =
-        header.closest(
-          ".topic-card"
-        );
-
-      card.classList.toggle(
-        "open"
-      );
-
-    }
-
-
-    function expandAll(){
-
-      document
-        .querySelectorAll(
-          ".topic-card"
-        )
-        .forEach(
-          card =>
-            card.classList.add(
-              "open"
-            )
-        );
-
-    }
-
-
-    function collapseAll(){
-
-      document
-        .querySelectorAll(
-          ".topic-card"
-        )
-        .forEach(
-          card =>
-            card.classList.remove(
-              "open"
-            )
-        );
-
-    }
-
-
-    /*
-      ==========================================
-      ULOŽENÍ FINÁLNÍHO TEXTU
+      FINÁLNÍ TEXT
       ==========================================
     */
 
@@ -1231,7 +2059,8 @@
 
       const status =
         document.getElementById(
-          "status_" + finalKey
+          "status_" +
+          finalKey
         );
 
 
@@ -1239,46 +2068,32 @@
         textarea.value.trim();
 
 
-      /*
-        Když je text prázdný,
-        smažeme finální text.
-      */
-
       if(!text){
 
         delete finalTexts[
           finalKey
         ];
 
+      }
 
-        localStorage.setItem(
-          "finalBookTexts",
-          JSON.stringify(
-            finalTexts
-          )
-        );
+      else{
 
-
-        status.textContent =
-          "Finální text byl odstraněn.";
-
-        updateStatistics();
-
-        return;
+        finalTexts[
+          finalKey
+        ] =
+          text;
 
       }
 
 
-      finalTexts[
-        finalKey
-      ] = text;
-
-
       localStorage.setItem(
+
         "finalBookTexts",
+
         JSON.stringify(
           finalTexts
         )
+
       );
 
 
@@ -1289,17 +2104,14 @@
       updateStatistics();
 
 
-      /*
-        Po chvíli zprávu schováme.
-      */
-
       setTimeout(
         () => {
 
-          status.textContent = "";
+          status.textContent =
+            "";
 
         },
-        2500
+        2200
       );
 
     }
@@ -1313,7 +2125,7 @@
 
     function updateStatistics(){
 
-      const christianAnswers =
+      const christian =
         allAnswers.filter(
           answer =>
             answer.religion ===
@@ -1321,7 +2133,7 @@
         ).length;
 
 
-      const islamAnswers =
+      const islam =
         allAnswers.filter(
           answer =>
             answer.religion ===
@@ -1329,14 +2141,16 @@
         ).length;
 
 
-      const finishedTexts =
+      const finals =
         Object.values(
           finalTexts
         )
         .filter(
-          text =>
-            typeof text === "string" &&
-            text.trim() !== ""
+          value =>
+            typeof value ===
+              "string"
+            &&
+            value.trim()
         )
         .length;
 
@@ -1350,49 +2164,192 @@
       document.getElementById(
         "christianAnswers"
       ).textContent =
-        christianAnswers;
+        christian;
 
 
       document.getElementById(
         "islamAnswers"
       ).textContent =
-        islamAnswers;
+        islam;
 
 
       document.getElementById(
         "finalCount"
       ).textContent =
-        finishedTexts;
+        finals;
 
     }
 
 
     /*
       ==========================================
-      POSUN NA SEKCI
+      HORNÍ TLAČÍTKA
       ==========================================
     */
 
-    function scrollToSection(id){
+    window.expandAll =
+      function(){
 
-      const element =
-        document.getElementById(id);
+        document
+          .querySelectorAll(
+            ".topic-card"
+          )
+          .forEach(
+            card =>
+              card.classList.add(
+                "open"
+              )
+          );
 
-      if(!element){
-        return;
+      };
+
+
+    window.collapseAll =
+      function(){
+
+        document
+          .querySelectorAll(
+            ".topic-card"
+          )
+          .forEach(
+            card =>
+              card.classList.remove(
+                "open"
+              )
+          );
+
+      };
+
+
+    window.scrollToSection =
+      function(id){
+
+        document
+          .getElementById(id)
+          ?.scrollIntoView({
+            behavior:"smooth"
+          });
+
+      };
+
+
+    /*
+      ==========================================
+      ODHLÁŠENÍ UČITELE
+      ==========================================
+    */
+
+    window.logoutTeacher =
+      function(){
+
+        sessionStorage.removeItem(
+          "teacherLoggedIn"
+        );
+
+
+        window.location.href =
+          "index.html";
+
+      };
+
+
+    /*
+      ==========================================
+      FIREBASE STAV
+      ==========================================
+    */
+
+    function setConnectionState(
+      state,
+      message
+    ){
+
+      const box =
+        document.getElementById(
+          "connection"
+        );
+
+
+      const text =
+        document.getElementById(
+          "connectionText"
+        );
+
+
+      box.classList.remove(
+        "connected",
+        "error"
+      );
+
+
+      if(
+        state === "connected"
+      ){
+
+        box.classList.add(
+          "connected"
+        );
+
       }
 
-      element.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-      });
+
+      if(
+        state === "error"
+      ){
+
+        box.classList.add(
+          "error"
+        );
+
+      }
+
+
+      text.textContent =
+        message;
 
     }
 
 
     /*
       ==========================================
-      KLÍČ FINÁLNÍHO TEXTU
+      DATUM FIREBASE
+      ==========================================
+    */
+
+    function formatTimestamp(
+      timestamp
+    ){
+
+      if(
+        !timestamp ||
+        typeof timestamp.toDate !==
+          "function"
+      ){
+
+        return "";
+
+      }
+
+
+      return (
+        "Uloženo: " +
+        timestamp
+        .toDate()
+        .toLocaleString(
+          "cs-CZ",
+          {
+            dateStyle:"short",
+            timeStyle:"short"
+          }
+        )
+      );
+
+    }
+
+
+    /*
+      ==========================================
+      FINÁLNÍ KLÍČ
       ==========================================
     */
 
@@ -1403,9 +2360,13 @@
 
       return (
         "final_" +
-        normalizeText(religion) +
+        normalizeText(
+          religion
+        ) +
         "_" +
-        normalizeText(topic)
+        normalizeText(
+          topic
+        )
       );
 
     }
@@ -1413,11 +2374,13 @@
 
     /*
       ==========================================
-      NORMALIZACE TEXTU
+      NORMALIZACE
       ==========================================
     */
 
-    function normalizeText(text){
+    function normalizeText(
+      text
+    ){
 
       return text
         .normalize("NFD")
@@ -1440,53 +2403,13 @@
 
     /*
       ==========================================
-      FORMÁT DATA
-      ==========================================
-    */
-
-    function formatDate(
-      isoDate
-    ){
-
-      if(!isoDate){
-        return "";
-      }
-
-
-      const date =
-        new Date(isoDate);
-
-
-      if(
-        Number.isNaN(
-          date.getTime()
-        )
-      ){
-        return "";
-      }
-
-
-      return (
-        "Uloženo: " +
-        date.toLocaleString(
-          "cs-CZ",
-          {
-            dateStyle:"short",
-            timeStyle:"short"
-          }
-        )
-      );
-
-    }
-
-
-    /*
-      ==========================================
       OCHRANA HTML
       ==========================================
     */
 
-    function escapeHTML(text){
+    function escapeHTML(
+      text
+    ){
 
       if(
         typeof text !==
@@ -1520,28 +2443,8 @@
 
     }
 
-
-    /*
-      ==========================================
-      TEXT DO JAVASCRIPT PARAMETRU
-      ==========================================
-    */
-
-    function escapeJS(text){
-
-      return text
-        .replaceAll(
-          "\\",
-          "\\\\"
-        )
-        .replaceAll(
-          "'",
-          "\\'"
-        );
-
-    }
-
   </script>
 
 </body>
+
 </html>
